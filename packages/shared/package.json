@@ -1,0 +1,26 @@
+{
+  "name": "@xiaoshop/shared",
+  "version": "1.0.0",
+  "description": "XiaoShop 云链小店 (@shared)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup --dts-resolve",
+    "dev": "nr build --watch"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5"
+  },
+  "packageManager": "pnpm@9.12.3"
+}

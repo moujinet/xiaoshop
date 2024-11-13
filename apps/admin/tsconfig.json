@@ -1,0 +1,38 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["src/modules/*"],
+      "~/*": ["src/*"],
+      "~~/*": ["./*"]
+    },
+    "types": [
+      "vite/client",
+      "unplugin-vue-define-options/macros-global",
+      "unplugin-vue-router/client",
+      "vite-plugin-pwa/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "src/*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "test/**/*.test.ts"
+  ],
+  "exclude": [
+    "public"
+  ],
+  "vueCompilerOptions": {
+    "target": 3,
+    "plugins": [
+      "@vue-macros/volar/define-options"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projectRoot": "path/to/project",
+  "migration": {
+    "typeorm": "path/to/typeorm",
+    "datasource": "path/to/datasource",
+    "migrations": "path/to/migrations",
+    "tablePrefix": "xiaoshop_"
+  },
+  "region": {
+    "cacheDir": "path/to/cache",
+    "outputDir": "path/to/output"
+  }
+}

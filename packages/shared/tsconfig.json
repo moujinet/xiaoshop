@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "useDefineForClassFields": true,
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["src/types/*"],
+      "~/*": ["src/*"]
+    },
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src/**/*.ts"]
+}
