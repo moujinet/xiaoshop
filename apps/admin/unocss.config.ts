@@ -1,4 +1,5 @@
 import presetWebFonts from '@unocss/preset-web-fonts'
+import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import {
   defineConfig,
   presetAttributify,
@@ -36,6 +37,11 @@ export default defineConfig({
       fonts: {
         logo: 'Chillax',
       },
+      processors: createLocalFontProcessor({
+        cacheDir: 'node_modules/.cache/unocss/fonts',
+        fontAssetsDir: 'public/assets/fonts',
+        fontServeBaseUrl: '/assets/fonts',
+      }),
     }),
     presetAttributify(),
     presetTypography(),
