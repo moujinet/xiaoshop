@@ -3,8 +3,9 @@ const { execSync } = require('node:child_process')
 const fs = require('node:fs')
 const path = require('node:path')
 
-const scopes = fs
-  .readdirSync(path.resolve(__dirname, 'packages'), { withFileTypes: true })
+const scopes = ['apps', 'packages', 'services']
+  .map(scope => fs.readdirSync(path.resolve(__dirname, scope), { withFileTypes: true }))
+  .flat()
   .filter(dirent => dirent.isDirectory())
   .map(dirent => dirent.name.replace(/s$/, ''))
 
@@ -13,9 +14,9 @@ const scopeComplete = execSync('git status --porcelain || true')
   .toString()
   .trim()
   .split('\n')
-  .find(r => ~r.indexOf('M  packages'))
+  .find(r => ~r.indexOf('M  packages') || ~r.indexOf('M  services') || ~r.indexOf('M  apps'))
   ?.replace(/(\/)/g, '%%')
-  ?.match(/packages%%((\w|-)*)/)?.[1]
+  ?.match(/packages|services|apps%%((\w|-)*)/)?.[1]
   ?.replace(/s$/, '')
 
 /** @type {import('cz-git').UserConfig} */
