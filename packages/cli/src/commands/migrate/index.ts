@@ -4,11 +4,15 @@ import { AbstractCommand } from '@/common/command'
  * Migrate Command
  */
 export class MigrateCommand extends AbstractCommand {
-  getCommandName() {
-    return 'migrate <action>'
+  getName() {
+    return 'migrate'
   }
 
-  getCommandSummary() {
+  getAlias() {
+    return 'mg'
+  }
+
+  getSummary() {
     return 'Database Migration'
   }
 

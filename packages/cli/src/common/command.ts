@@ -1,19 +1,28 @@
+import { join } from 'node:path'
 import { Command } from 'commander'
 import * as color from 'picocolors'
 import * as Table from 'cli-table3'
 import { existsSync } from 'node:fs'
 import { pascalCase } from 'es-toolkit'
 
+import { ConfigPath } from '@/config'
+import { Console } from '@/utils/console'
+
 export abstract class AbstractCommand {
   /**
    * Get Command name
    */
-  abstract getCommandName(): string
+  abstract getName(): string
+
+  /**
+   * Get Command alias
+   */
+  abstract getAlias(): string
 
   /**
    * Get Command Summary
    */
-  abstract getCommandSummary(): string
+  abstract getSummary(): string
 
   /**
    * Get Actions
@@ -27,11 +36,17 @@ export abstract class AbstractCommand {
    */
   async load(program: Command) {
     program
-      .command(this.getCommandName())
-      .summary(this.getCommandSummary())
+      .command(`${this.getName()} <action>`)
+      .alias(this.getAlias())
+      .summary(this.getSummary())
       .description(this.buildDescription())
       .action(async (name: string) => {
-        await this.runAction(name)
+        try {
+          await this.runAction(name)
+        }
+        catch (e) {
+          Console.error(e)
+        }
       })
   }
 
@@ -44,13 +59,13 @@ export abstract class AbstractCommand {
     )?.name || ''
 
     if (!actionName)
-      throw new Error(`Action ${name} not found.`)
+      throw new Error(`Action "${name}" not found.`)
 
     const className = `${pascalCase(actionName)}Action`
-    const classFile = `./${actionName}.ts`
+    const classFile = join(ConfigPath.paths.CLI_LOCAL, 'dist', 'commands', this.getName(), `${actionName}.js`)
 
     if (!existsSync(classFile))
-      throw new Error(`Action ${name} not found.`)
+      throw new Error(`File "${classFile}" not exists.`)
 
     // eslint-disable-next-line ts/no-require-imports
     const ActionClass = require(classFile)[className]
@@ -61,7 +76,7 @@ export abstract class AbstractCommand {
 
   private buildDescription() {
     return (
-      `${color.cyan(color.bold(this.getCommandSummary()))}.
+      `${color.cyan(color.bold(this.getSummary()))}.
       \nAvailable actions:
       \n${this.buildListAsTable(this.getActions())}`
     )

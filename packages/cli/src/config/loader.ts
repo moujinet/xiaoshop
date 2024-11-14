@@ -6,8 +6,15 @@ import { readAnyFileOf, readFile } from '@/utils/fs'
 import { ConfigPath } from './path'
 import { defaultConfig } from './defaults'
 
+const configCache = new Map<string, IConfig>()
+
 export class ConfigLoader {
   load(name?: string): IConfig {
+    const cacheKey = name || 'default'
+
+    if (configCache.has(cacheKey))
+      return configCache.get(cacheKey)!
+
     const contentOrError = name
       ? readFile(name)
       : readAnyFileOf([
@@ -15,13 +22,15 @@ export class ConfigLoader {
         'xiaoshop-cli.json',
       ])
 
+    let loaded: IConfig
+
     if (contentOrError) {
       const isError = !contentOrError || contentOrError.startsWith('ERROR')
 
       if (!isError) {
         const config = JSON.parse(contentOrError)
 
-        return ConfigPath.resolveConfig(
+        loaded = ConfigPath.resolveConfig(
           defu(config, defaultConfig),
         )
       }
@@ -30,10 +39,10 @@ export class ConfigLoader {
       process.exit(1)
     }
 
-    return ConfigPath.resolveConfig(defaultConfig)
-  }
-}
+    loaded = ConfigPath.resolveConfig(defaultConfig)
 
-export function loadConfig() {
-  return new ConfigLoader().load()
+    configCache.set(cacheKey, loaded)
+
+    return loaded
+  }
 }

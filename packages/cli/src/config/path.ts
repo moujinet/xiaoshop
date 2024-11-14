@@ -1,4 +1,4 @@
-import { join, resolve } from 'node:path'
+import { join, posix, resolve } from 'node:path'
 
 import { renderString } from '@/utils/render'
 
@@ -6,7 +6,9 @@ export class ConfigPath {
   /**
    * @description 配置路径
    */
-  static paths: Record<string, string> = {}
+  static paths: Record<string, string> = {
+    CLI_LOCAL: posix.join(process.cwd(), 'node_modules', '@xiaoshop', 'cli'),
+  }
 
   /**
    * 解析配置路径

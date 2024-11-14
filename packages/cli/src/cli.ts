@@ -36,7 +36,7 @@ async function client() {
   await program.parseAsync(process.argv)
     .catch(() => {})
     .finally(() => {
-      outro(`Problem? ${color.underline(color.cyan('https://github.com/moujinet/xiaoshop-monorepo/issues'))}`)
+      outro(`Problem? ${color.underline(color.cyan('https://github.com/moujinet/xiaoshop/issues'))}`)
     })
 }
 

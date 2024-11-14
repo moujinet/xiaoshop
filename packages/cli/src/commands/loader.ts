@@ -1,7 +1,8 @@
-import { posix } from 'node:path'
+import { join } from 'node:path'
 import { Command } from 'commander'
 import { existsSync } from 'node:fs'
 
+import { loadConfig } from '@/config'
 import { ConfigPath } from '@/config/path'
 
 import { RegionCommand } from './region'
@@ -13,11 +14,11 @@ export class CommandLoader {
    * 初始化
    */
   static async init(program: Command) {
-    if (existsSync(ConfigPath.paths.CLI_ROOT)) {
+    loadConfig()
+
+    if (existsSync(ConfigPath.paths.CLI_LOCAL)) {
       // eslint-disable-next-line ts/no-require-imports
-      const local = require(
-        posix.join(ConfigPath.paths.CLI_ROOT, 'dist', 'commands', 'loader'),
-      )
+      const local = require(join(ConfigPath.paths.CLI_LOCAL, 'dist', 'commands', 'loader'))
       await local.CommandLoader.load(program)
     }
     else {

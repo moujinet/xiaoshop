@@ -7,6 +7,10 @@ import { onDebug } from './env'
 export const step = spinner()
 
 export const Console = {
+  title: (msg: string | any, ...args: any[]) => {
+    log.info(color.bold(color.blue(format(msg, ...args.map(arg => color.white(arg))))))
+  },
+
   info: (msg: string | any, ...args: any[]) => {
     log.info(format(msg, ...args.map(arg => color.cyan(arg))))
   },
@@ -61,6 +65,10 @@ export const Console = {
 
     skip: (msg: string, ...args: any[]) => {
       step.stop(`${format(msg, ...args.map(arg => color.cyan(arg)))}    ${color.yellow('☻')}`)
+    },
+
+    message: (msg: string, ...args: any[]) => {
+      step.message(`${format(msg, ...args.map(arg => color.yellow(arg)))} ...`)
     },
   },
 }

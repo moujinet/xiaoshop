@@ -4,18 +4,21 @@ import { AbstractCommand } from '@/common/command'
  * Region Command
  */
 export class RegionCommand extends AbstractCommand {
-  getCommandName() {
-    return 'region <action>'
+  getName() {
+    return 'region'
   }
 
-  getCommandSummary() {
-    return 'China Region Dictionary Updater'
+  getAlias() {
+    return 'r'
+  }
+
+  getSummary() {
+    return `Region Dictionary Update`
   }
 
   getActions() {
     return [
-      { alias: 'u', name: 'update', desc: 'Update Region Dictionary' },
-      { alias: 'c', name: 'check', desc: 'Check Update' },
+      { alias: 'cn', name: 'china', desc: 'Update China Mainland Region Dictionary' },
     ]
   }
 }
