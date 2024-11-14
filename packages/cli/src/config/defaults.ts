@@ -11,7 +11,7 @@ export const defaultConfig: IConfig = {
 
   region: {
     cacheDir: '{{ CACHE_ROOT }}/region',
-    outputDir: '{{ ADMIN_ROOT }}/public/assets/js',
+    outputDir: '{{ ADMIN_ROOT }}/public/assets/json',
   },
 
   alias: {
