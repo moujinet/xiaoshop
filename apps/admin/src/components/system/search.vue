@@ -55,6 +55,7 @@ function onAfterModalShow() {
       <input
         ref="keywordRef"
         v-model="keyword"
+        name="keyword"
         type="text"
         placeholder="搜索"
         class="flex-1 border-0 placeholder-c-$theme-placeholder"
