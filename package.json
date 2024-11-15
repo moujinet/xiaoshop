@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.12.3",
+  "packageManager": "pnpm@9.13.1",
   "description": "XiaoShop - 云链小店",
   "author": "Luoyi <luoyi@mouji.net>",
   "license": "Apache-2.0",
@@ -14,7 +14,7 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.8.0",
+    "@antfu/eslint-config": "^3.9.1",
     "@antfu/ni": "^0.23.0",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
@@ -28,7 +28,7 @@
     "eslint-plugin-perfectionist": "^3.9.1",
     "eslint-plugin-vue": "^9.31.0",
     "lint-staged": "^15.2.10",
-    "pnpm": "^9.12.3",
+    "pnpm": "^9.13.1",
     "postcss-html": "^1.7.0",
     "postcss-less": "^6.0.0",
     "simple-git-hooks": "^2.11.1",
