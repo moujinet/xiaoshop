@@ -24,28 +24,31 @@ export function useMessage(options?: IUseMessageOptions) {
     /**
      * 显示信息消息
      *
-     * @param content string
+     * @param message string
+     * @param args Record<string, string>
      */
-    info: (content: string) => {
-      ArcoMessage.info({ id, content, duration, closable, showIcon, resetOnHover: true, onClose })
+    info: (message: string, args: Record<string, string> = {}) => {
+      ArcoMessage.info({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
     },
 
     /**
      * 显示成功消息
      *
-     * @param content string
+     * @param message string
+     * @param args Record<string, string>
      */
-    success: (content: string) => {
-      ArcoMessage.success({ id, content, duration, closable, showIcon, resetOnHover: true, onClose })
+    success: (message: string, args: Record<string, string> = {}) => {
+      ArcoMessage.success({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
     },
 
     /**
      * 显示错误消息
      *
-     * @param content string
+     * @param message string
+     * @param args Record<string, string>
      */
-    error: (content: string) => {
-      ArcoMessage.error({ id, content, duration, closable, showIcon, resetOnHover: true, onClose })
+    error: (message: string, args: Record<string, string> = {}) => {
+      ArcoMessage.error({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
     },
 
     /**
