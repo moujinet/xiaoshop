@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 defineOptions({
-  name: 'SystemToolbarItem',
+  name: 'SystemToolbarIcon',
 })
 
 defineProps<{
   icon: string
-  count?: number
+  badge?: number
   tooltip?: string
   defaultTooltipVisible?: boolean
   activeIcon?: boolean
@@ -20,10 +20,10 @@ defineProps<{
     :content="tooltip"
     mini
   >
-    <a-badge :count="count || 0" dot>
+    <a-badge :count="badge || 0" dot>
       <div
-        class="clickable p-1 inline-flex text-(5 color-$theme-comment)"
-        :class="activeIcon ? activeIconClass : ''"
+        class="clickable p-1 inline-flex text-5"
+        :class="activeIcon ? activeIconClass : 'color-$theme-comment'"
       >
         <UiIcon :name="icon" :active="activeIcon" />
       </div>

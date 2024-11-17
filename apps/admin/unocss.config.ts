@@ -19,6 +19,7 @@ export default defineConfig({
     {
       // effects
       'clickable': 'cursor-pointer rounded-sm c-$color-text-1 hover:bg-$color-fill-1 active:bg-$color-fill-2 transition-all',
+      'input': 'bg-$theme-bg-input hover:bg-$theme-bg-input-hover focus:bg-$theme-bg-input-focus',
 
       // utils
       'flex-center': 'items-center justify-center',

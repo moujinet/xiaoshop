@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 defineOptions({
-  name: 'SystemLayoutPanel',
+  name: 'SystemPanel',
 })
 
 defineProps<{
@@ -10,20 +10,20 @@ defineProps<{
 
 <template>
   <div
-    class="layout-panel"
+    class="system-panel"
     :class="{
       'is-left': !position || position === 'left',
       'is-right': position === 'right',
     }"
   >
-    <div class="layout-panel__children">
+    <div class="system-panel__children">
       <slot />
     </div>
   </div>
 </template>
 
 <style lang="less">
-.layout-panel {
+.system-panel {
   top: 0;
   left: 0;
   z-index: 100;

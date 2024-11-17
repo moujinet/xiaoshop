@@ -1,4 +1,4 @@
-export type IUserMenuGroup = 'settings' | 'extras' | 'help' | 'footer'
+export type IUserMenuGroup = 'session' | 'extras' | 'help' | 'footer'
 
 export interface IUserMenu {
   /**
@@ -36,7 +36,7 @@ export const useUserMenu = defineStore('usermenu', () => {
    * 用户菜单
    */
   const usermenus = ref<IUserMenuGrouped>({
-    settings: [
+    session: [
       { key: 'profile', icon: 'user-1', label: '个人资料', url: '/profile' },
       { key: 'appearance', icon: 'paint-brush', label: '显示设置', url: '/appearance' },
       { key: 'notifications', icon: 'notification', label: '消息设置', url: '/notifications' },
@@ -44,8 +44,8 @@ export const useUserMenu = defineStore('usermenu', () => {
     ],
     extras: [],
     help: [
-      { key: 'docs', icon: 'book-6', label: '帮助中心', url: 'https://github.com/moujinet/xiaoshop-monorepo.git' },
-      { key: 'feedback', icon: 'comment', label: '社区反馈', url: 'https://github.com/moujinet/xiaoshop-monorepo/issues' },
+      { key: 'docs', icon: 'book-6', label: '帮助中心', url: 'https://github.com/moujinet/xiaoshop' },
+      { key: 'feedback', icon: 'comment', label: '社区反馈', url: 'https://github.com/moujinet/xiaoshop/issues' },
     ],
     footer: [
       { key: 'logout', icon: 'exit', label: '安全退出', url: '/logout' },

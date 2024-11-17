@@ -17,11 +17,19 @@ defineOptions({
       </div>
 
       <div class="layout-header__end">
-        <SystemSearch />
-        <a-divider direction="vertical" />
-        <SystemUsermenu />
-        <a-divider direction="vertical" />
-        <SystemToolbar />
+        <a-space>
+          <template #split>
+            <a-divider direction="vertical" />
+          </template>
+
+          <SystemSearch />
+          <SystemUsermenu />
+
+          <a-space>
+            <SystemToolbarIcon icon="qrcode" tooltip="访问店铺" />
+            <SystemNotification />
+          </a-space>
+        </a-space>
       </div>
     </div>
 

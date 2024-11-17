@@ -5,9 +5,13 @@ defineOptions({
 </script>
 
 <template>
-  <SystemLayoutPanel class="system-sidebar">
-    <slot />
-  </SystemLayoutPanel>
+  <SystemPanel class="system-sidebar">
+    <div>
+      <div>
+        <div>Header</div>
+      </div>
+    </div>
+  </SystemPanel>
 </template>
 
 <style lang="less">

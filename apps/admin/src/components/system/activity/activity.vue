@@ -5,7 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  <SystemLayoutPanel class="w-$layout-activity-width select-none">
+  <SystemPanel class="w-$layout-activity-width select-none">
     <div class="pt-$page-gap-sm">
       <SystemActivityItem icon="box" :count="1" tooltip="You have 1 new order" active />
       <SystemActivityItem icon="shopping-cart-1" />
@@ -13,5 +13,5 @@ defineOptions({
       <SystemActivityItem icon="truck" />
       <SystemActivityItem icon="message-4" />
     </div>
-  </SystemLayoutPanel>
+  </SystemPanel>
 </template>

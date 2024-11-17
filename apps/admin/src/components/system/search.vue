@@ -29,11 +29,11 @@ function onAfterModalShow() {
 </script>
 
 <template>
-  <div class="system-search" @click="showModal">
+  <div class="system-search input" @click="showModal">
     <UiIcon name="search" class="system-search__icon" />
     <div class="flex-(~ v-center 1 between) lt-lg:hidden lg-md:w-50">
       <span>搜索</span>
-      <code class="system-search-shortcut">/</code>
+      <SystemShortcut>/</SystemShortcut>
     </div>
   </div>
 
@@ -69,12 +69,12 @@ function onAfterModalShow() {
     <div class="flex-(~ v-center between) p-4 b-t-(1 solid $theme-border) text-(3 $theme-placeholder)">
       <div class="flex-(~ v-center) gap-4">
         <span class="flex-(~ v-center) gap-2">
-          <code class="system-search-shortcut">↩︎</code>
+          <SystemShortcut>↩︎</SystemShortcut>
           选择
         </span>
         <span class="flex-(~ v-center) gap-2">
-          <code class="system-search-shortcut">↑</code>
-          <code class="system-search-shortcut">↓</code>
+          <SystemShortcut>↑</SystemShortcut>
+          <SystemShortcut>↓</SystemShortcut>
           切换
         </span>
       </div>
@@ -82,11 +82,11 @@ function onAfterModalShow() {
       <div class="flex-(~ v-center) gap-4">
         <span class="flex-(~ v-center) gap-2">
           打开搜索
-          <code class="system-search-shortcut">/</code>
+          <SystemShortcut>/</SystemShortcut>
         </span>
         <span class="flex-(~ v-center) gap-2">
           退出
-          <code class="system-search-shortcut">ESC</code>
+          <SystemShortcut>ESC</SystemShortcut>
         </span>
       </div>
     </div>
@@ -96,15 +96,13 @@ function onAfterModalShow() {
 <style lang="less">
 .system-search {
   display: flex;
+  cursor: pointer;
   align-items: center;
   height: 30px;
-  padding: 0 var(--page-gap-sm);
   font-size: 16px;
   border-radius: 4px;
+  padding: 0 var(--page-gap-sm);
   color: var(--theme-placeholder);
-  border: 1px solid var(--theme-border);
-  background-color: var(--theme-bg-component);
-  cursor: pointer;
 
   &__icon {
     font-size: 16px;
@@ -113,16 +111,6 @@ function onAfterModalShow() {
   span {
     font-size: 14px;
     margin-left: var(--page-gap-sm);
-  }
-
-  &-shortcut {
-    font-size: 12px;
-    padding: 3.5px 6px;
-    border-radius: 3px;
-    line-height: 1;
-    border: 1px solid var(--theme-border);
-    box-shadow: 0 1px var(--theme-border);
-    background-color: var(--theme-bg-component);
   }
 
   &-modal {

@@ -195,11 +195,7 @@ export const useModuleMenu = defineStore('menu', () => {
   }
 
   return {
-    menus: computed(
-      () => menus.value.sort(
-        (a, b) => a.sort - b.sort,
-      ),
-    ),
+    menus: computed(() => menus.value.sort((a, b) => a.sort - b.sort)),
     load,
   }
 })
