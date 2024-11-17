@@ -2,7 +2,7 @@
   "name": "@xiaoshop/cli",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.13.1",
+  "packageManager": "pnpm@9.13.2",
   "description": "XiaoShop 云链小店 (@cli)",
   "author": "Luoyi <luoyi@mouji.net>",
   "license": "Apache-2.0",
@@ -21,7 +21,7 @@
     "test": "pnpm run build && node dist/cli.js"
   },
   "dependencies": {
-    "@clack/prompts": "^0.7.0",
+    "@clack/prompts": "^0.8.1",
     "@xiaoshop/shared": "workspace:*",
     "cli-table3": "^0.6.5",
     "commander": "^12.1.0",
