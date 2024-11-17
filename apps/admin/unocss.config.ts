@@ -21,12 +21,14 @@ export default defineConfig({
       'clickable': 'cursor-pointer rounded-sm c-$color-text-1 hover:bg-$color-fill-1 active:bg-$color-fill-2 transition-all',
       'input': 'bg-$theme-bg-input hover:bg-$theme-bg-input-hover focus:bg-$theme-bg-input-focus',
 
+      // links
+      'text-link': 'cursor-pointer text-$theme-comment hover:c-$theme-text active:c-$theme-title transition-color',
+
       // utils
       'flex-center': 'items-center justify-center',
       'flex-v-center': 'items-center',
       'flex-h-center': 'justify-center',
       'flex-between': 'justify-between',
-      'absolute-center': 'left-50% top-50% translate-x--1/2 translate-y--1/2',
     },
   ],
   presets: [

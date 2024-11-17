@@ -77,11 +77,11 @@ const notifications = [
     </div>
 
     <div class="flex-(~ v-center between) text-3 p-(x-4 y-3) bg-$color-fill-1 b-t-(1 solid $theme-border)">
-      <UiLink>
+      <UiLink class="text-link">
         设为已读
       </UiLink>
 
-      <UiLink suffix-icon="arrows-right">
+      <UiLink class="text-link" suffix-icon="arrows-right">
         查看全部
       </UiLink>
     </div>

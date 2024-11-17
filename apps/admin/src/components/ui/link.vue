@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <a
     :href="to"
-    class="flex-(inline v-center gap-1) cursor-pointer text-$theme-comment hover:c-$theme-text hover:c-$theme-title"
+    class="flex-(inline v-center gap-1) cursor-pointer"
   >
     <slot name="prefix">
       <UiIcon v-if="prefixIcon" :name="prefixIcon" class="text-4" />

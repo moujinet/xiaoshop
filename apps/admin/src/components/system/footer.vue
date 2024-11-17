@@ -67,6 +67,10 @@ defineOptions({
         &:hover {
           color: var(--theme-text);
         }
+
+        &:active {
+          color: var(--theme-title);
+        }
       }
     }
   }
