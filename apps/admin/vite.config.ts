@@ -9,7 +9,6 @@ import SvgLoader from 'vite-svg-loader'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Layouts from 'vite-plugin-vue-layouts'
-import { transformLazyShow } from 'v-lazy-show'
 import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -21,15 +20,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 const plugins: PluginOption[] = [
-  Vue({
-    template: {
-      compilerOptions: {
-        nodeTransforms: [
-          transformLazyShow,
-        ],
-      },
-    },
-  }),
+  Vue(),
 
   VueJsx(),
 
@@ -75,6 +66,7 @@ const plugins: PluginOption[] = [
           ['Message', 'ArcoMessage'],
           ['Notification', 'ArcoNotification'],
         ],
+        'alova/client': ['useRequest'],
       },
       VueRouterAutoImports,
       unheadVueComposablesImports,

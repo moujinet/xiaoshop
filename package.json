@@ -14,8 +14,8 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.9.1",
-    "@antfu/ni": "^0.23.0",
+    "@antfu/eslint-config": "^3.9.2",
+    "@antfu/ni": "^0.23.1",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@xiaoshop/cli": "workspace:*",
