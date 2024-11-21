@@ -2,7 +2,7 @@
   "name": "@xiaoshop/nestjs",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.14.1",
+  "packageManager": "pnpm@9.14.2",
   "description": "XiaoShop 云链小店 (@nestjs)",
   "author": "Luoyi <luoyi@mouji.net>",
   "license": "Apache-2.0",
@@ -55,7 +55,7 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
-    "@nestjs/cli": "^10.4.7",
+    "@nestjs/cli": "^10.4.8",
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.8",
     "@swc/cli": "0.4.1-nightly.20240914",
