@@ -45,6 +45,7 @@
     "@vitejs/plugin-vue-jsx": "^4.1.0",
     "@vue-macros/volar": "^0.30.6",
     "@vue/devtools-api": "^7.6.4",
+    "@xiaoshop/vite-plugin-less-sitter": "workspace:*",
     "less": "^4.2.0",
     "rimraf": "5.0.0",
     "unocss": "^0.64.1",

@@ -138,6 +138,9 @@ importers:
       '@vue/devtools-api':
         specifier: ^7.6.4
         version: 7.6.4
+      '@xiaoshop/vite-plugin-less-sitter':
+        specifier: workspace:*
+        version: link:../../packages/vite-plugin-less-sitter
       less:
         specifier: ^4.2.0
         version: 4.2.0
@@ -268,12 +271,15 @@ importers:
 
   packages/vite-plugin-less-sitter:
     dependencies:
+      '@vue/compiler-sfc':
+        specifier: ^2.7.0 || ^3.0.0
+        version: 3.5.13
+      css-preprocessor-variables:
+        specifier: ^1.1.0
+        version: 1.1.0
       debug:
         specifier: ^4.3.7
         version: 4.3.7
-      local-pkg:
-        specifier: ^0.5.1
-        version: 0.5.1
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -281,9 +287,6 @@ importers:
       '@types/node':
         specifier: ^22.9.1
         version: 22.9.1
-      '@vue/compiler-sfc':
-        specifier: ^3.5.13
-        version: 3.5.13
       pnpm:
         specifier: ^9.14.2
         version: 9.14.2
@@ -4028,6 +4031,9 @@ packages:
     resolution: {integrity: sha512-IQOkD3hbR5KrN93MtcYuad6YPuTSUhntLHDuLEbFWE+ff2/XSZNdZG+LcbbIW5AXKg/WFIfYItIzVoHngHXZzA==}
     engines: {node: '>=12 || >=16'}
 
+  css-preprocessor-variables@1.1.0:
+    resolution: {integrity: sha512-SHDCYC65HJ2DPn0ZXWOQP0VWfqMhHkDiGHN+IWm7BiJIAJ/oW4A/bivATR/SAxJncmyc3zo/DZIT4ulIxWm7Ng==}
+
   css-select@5.1.0:
     resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
 
@@ -5783,6 +5789,9 @@ packages:
   lodash.defaults@4.2.0:
     resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
 
+  lodash.escaperegexp@4.1.2:
+    resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
+
   lodash.includes@4.3.0:
     resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
 
@@ -6673,6 +6682,10 @@ packages:
     resolution: {integrity: sha512-MfcMpSUIaR/nNgeVS8AyvyDugXlADjN9AcV7e5rDfrF1wduIAGSkL4q2+wgrZgA3sHVAHLDO9FuauHhZYW2nBw==}
     engines: {node: ^12 || >=14}
 
+  postcss-less@5.0.0:
+    resolution: {integrity: sha512-djK6NlApALJeBnNx7CzLatq64eMF3BCyzBH+faYPxrvNHHM/YCimJ6XQkgWgtim2G89EzdQG4Ed0lGNCXPfD7A==}
+    engines: {node: '>=12'}
+
   postcss-less@6.0.0:
     resolution: {integrity: sha512-FPX16mQLyEjLzEuuJtxA8X3ejDLNGGEG503d2YGZR5Ask1SpDN8KmZUMpzCvyalWRywAn1n1VOA5dcqfCLo5rg==}
     engines: {node: '>=12'}
@@ -6711,6 +6724,12 @@ packages:
     engines: {node: '>=18.0'}
     peerDependencies:
       postcss: ^8.4.31
+
+  postcss-scss@4.0.9:
+    resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.4.29
 
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -12315,6 +12334,15 @@ snapshots:
 
   css-functions-list@3.2.3: {}
 
+  css-preprocessor-variables@1.1.0:
+    dependencies:
+      lodash.camelcase: 4.3.0
+      lodash.escaperegexp: 4.1.2
+      lodash.kebabcase: 4.1.1
+      postcss: 8.4.49
+      postcss-less: 5.0.0
+      postcss-scss: 4.0.9(postcss@8.4.49)
+
   css-select@5.1.0:
     dependencies:
       boolbase: 1.0.0
@@ -14514,6 +14542,8 @@ snapshots:
 
   lodash.defaults@4.2.0: {}
 
+  lodash.escaperegexp@4.1.2: {}
+
   lodash.includes@4.3.0: {}
 
   lodash.isarguments@3.1.0: {}
@@ -15477,6 +15507,8 @@ snapshots:
       postcss: 8.4.47
       postcss-safe-parser: 6.0.0(postcss@8.4.47)
 
+  postcss-less@5.0.0: {}
+
   postcss-less@6.0.0(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
@@ -15499,6 +15531,10 @@ snapshots:
   postcss-safe-parser@7.0.1(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
+
+  postcss-scss@4.0.9(postcss@8.4.49):
+    dependencies:
+      postcss: 8.4.49
 
   postcss-selector-parser@6.1.2:
     dependencies:

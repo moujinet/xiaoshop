@@ -13,7 +13,7 @@ export default (): UserConfig => {
   plugins: [
     ViteLessSitter({
       imports: [
-        'src/styles/variables.less'
+        './src/styles/variables.less'
       ]
     })
   ]

@@ -7,6 +7,7 @@ import Vue from '@vitejs/plugin-vue'
 import Icons from 'unplugin-icons/vite'
 import SvgLoader from 'vite-svg-loader'
 import { VitePWA } from 'vite-plugin-pwa'
+import Inspect from 'vite-plugin-inspect'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Layouts from 'vite-plugin-vue-layouts'
 import VueRouter from 'unplugin-vue-router/vite'
@@ -17,6 +18,7 @@ import { unheadVueComposablesImports } from '@unhead/vue'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import ViteLessSitter from '@xiaoshop/vite-plugin-less-sitter'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 const plugins: PluginOption[] = [
@@ -128,6 +130,13 @@ const plugins: PluginOption[] = [
       multipass: true,
     },
   }),
+
+  // packages/vite-plugin-less-sitter
+  ViteLessSitter({
+    imports: [
+      './src/styles/override.less',
+    ],
+  }),
 ]
 
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -149,6 +158,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         '@': `${path.resolve(__dirname, 'src/modules')}/`,
+        '#': `${path.resolve(__dirname, 'src/runtime')}/`,
         '~': `${path.resolve(__dirname, 'src')}/`,
         '~~': `${path.resolve(__dirname)}/`,
       },
@@ -171,6 +181,11 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     plugins: [
       ...plugins,
+
+      // https://github.com/antfu-collective/vite-plugin-inspect
+      Inspect({
+        dev: mode === 'development',
+      }),
 
       // https://github.com/antfu/vite-plugin-pwa
       VitePWA({
