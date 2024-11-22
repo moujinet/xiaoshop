@@ -1,17 +1,41 @@
 {
-  "name": "xiaoshop-monorepo",
-  "type": "module",
+  "name": "xiaoshop",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.14.2",
-  "description": "XiaoShop - 云链小店",
-  "author": "Luoyi <luoyi@mouji.net>",
+  "description": "XiaoShop 云链小店",
+  "homepage": "https://github.com/moujinet/xiaoshop#readme",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moujinet/xiaoshop.git"
+  },
   "license": "Apache-2.0",
+  "author": "Allen Luo <luoyi@mouji.net>",
+  "type": "module",
   "scripts": {
     "cli": "cross-env NODE_ENV=development xiaoshop",
-    "stylelint": "stylelint apps/**/src/**/*.{html,vue,css,less}",
     "commit": "czg",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "stylelint": "stylelint apps/**/src/**/*.{html,vue,css,less}"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{vue,ts,tsx,js,jsx}": "eslint --fix",
+    "*.{html,vue,less}": [
+      "pnpm stylelint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
@@ -37,21 +61,5 @@
     "stylelint-order": "^6.0.4",
     "typescript": "^5.6.3"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
-  },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{vue,ts,tsx,js,jsx}": "eslint --fix",
-    "*.{html,vue,less}": [
-      "pnpm stylelint --fix"
-    ]
-  }
+  "packageManager": "pnpm@9.14.2"
 }

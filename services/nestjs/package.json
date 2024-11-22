@@ -2,20 +2,27 @@
   "name": "@xiaoshop/nestjs",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.14.2",
   "description": "XiaoShop 云链小店 (@nestjs)",
-  "author": "Luoyi <luoyi@mouji.net>",
+  "homepage": "https://github.com/moujinet/xiaoshop#readme",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moujinet/xiaoshop.git"
+  },
   "license": "Apache-2.0",
+  "author": "Allen Luo <luoyi@mouji.net>",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=deploy nest build -b swc",
     "dev": "cross-env NODE_ENV=development nest start -b swc -w",
-    "start": "cross-env NODE_ENV=deploy node dist/main",
     "lint": "eslint .",
+    "start": "cross-env NODE_ENV=deploy node dist/main",
     "test": "jest --config test/jest.json",
+    "test:cov": "pnpm run test --coverage",
     "test:e2e": "jest --config test/jest.e2e.json -u --forceExit --detectOpenHandles --runInBand --passWithNoTests",
-    "test:watch": "pnpm run test --watch",
-    "test:cov": "pnpm run test --coverage"
+    "test:watch": "pnpm run test --watch"
   },
   "dependencies": {
     "@nestjs/bull": "^10.2.2",
@@ -59,7 +66,7 @@
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.8",
     "@swc/cli": "0.4.1-nightly.20240914",
-    "@swc/core": "^1.9.2",
+    "@swc/core": "^1.9.3",
     "@swc/jest": "^0.2.37",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
@@ -82,5 +89,6 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.6.3"
-  }
+  },
+  "packageManager": "pnpm@9.14.2"
 }
