@@ -4,3 +4,5 @@ export interface IViteLessSitterOptions {
    */
   imports: string[]
 }
+
+export type Variables = Record<string, string>
