@@ -1,3 +1,4 @@
+import { presetArco } from '@xiaoshop/unocss-preset'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import {
@@ -10,20 +11,8 @@ import {
 } from 'unocss'
 
 export default defineConfig({
-  theme: {
-    colors: {
-      primary: 'rgba(var(--rgb-primary), <alpha-value>)',
-    },
-  },
   shortcuts: [
     {
-      // effects
-      'clickable': 'cursor-pointer rounded-sm c-$color-text-1 hover:bg-$color-fill-1 active:bg-$color-fill-2 transition-all',
-      'input': 'bg-$theme-bg-input hover:bg-$theme-bg-input-hover focus:bg-$theme-bg-input-focus',
-
-      // links
-      'text-link': 'cursor-pointer text-$theme-comment hover:c-$theme-text active:c-$theme-title transition-color',
-
       // utils
       'flex-center': 'items-center justify-center',
       'flex-v-center': 'items-center',
@@ -35,6 +24,7 @@ export default defineConfig({
     presetUno({
       attributifyPseudo: true,
     }),
+    presetArco(),
     presetWebFonts({
       provider: 'fontshare',
       fonts: {

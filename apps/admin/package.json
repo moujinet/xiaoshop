@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moujinet/xiaoshop.git"
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "app/admin"
   },
   "license": "Apache-2.0",
   "author": "Allen Luo <luoyi@mouji.net>",
@@ -45,7 +46,8 @@
     "@vitejs/plugin-vue-jsx": "^4.1.0",
     "@vue-macros/volar": "^0.30.6",
     "@vue/devtools-api": "^7.6.4",
-    "@xiaoshop/vite-plugin-less-sitter": "workspace:*",
+    "@xiaoshop/unocss-preset": "workspace:*",
+    "@xiaoshop/vite-plugin": "workspace:*",
     "less": "^4.2.0",
     "rimraf": "5.0.0",
     "unocss": "^0.64.1",

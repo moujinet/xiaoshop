@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moujinet/xiaoshop.git"
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/shared"
   },
   "license": "Apache-2.0",
   "author": "Allen Luo <luoyi@mouji.net>",
@@ -27,7 +28,8 @@
   ],
   "scripts": {
     "build": "tsup --dts-resolve",
-    "dev": "nr build --watch"
+    "dev": "nr build --watch",
+    "postinstall": "nr build"
   },
   "devDependencies": {
     "tsup": "^8.3.5"

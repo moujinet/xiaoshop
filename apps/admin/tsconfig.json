@@ -8,15 +8,16 @@
     "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["src/modules/*"],
+      "#/*": ["src/runtime/*"],
       "~/*": ["src/*"],
       "~~/*": ["./*"]
     },
     "types": [
       "vite/client",
-      "unplugin-vue-define-options/macros-global",
-      "unplugin-vue-router/client",
       "vite-plugin-pwa/client",
-      "vite-plugin-vue-layouts/client"
+      "unplugin-vue-router/client",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-define-options/macros-global",
     ],
     "verbatimModuleSyntax": true
   },

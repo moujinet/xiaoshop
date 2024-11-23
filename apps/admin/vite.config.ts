@@ -13,12 +13,12 @@ import Layouts from 'vite-plugin-vue-layouts'
 import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { ViteLessSitter } from '@xiaoshop/vite-plugin'
 import VueComponents from 'unplugin-vue-components/vite'
 import { unheadVueComposablesImports } from '@unhead/vue'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-import ViteLessSitter from '@xiaoshop/vite-plugin-less-sitter'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 const plugins: PluginOption[] = [

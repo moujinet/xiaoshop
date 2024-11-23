@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moujinet/xiaoshop.git"
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/cli"
   },
   "license": "Apache-2.0",
   "author": "Allen Luo <luoyi@mouji.net>",
@@ -25,10 +26,11 @@
     "prebuild": "rimraf dist",
     "build": "tsc && tsc-alias",
     "dev": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
+    "postinstall": "nr build",
     "test": "pnpm run build && node dist/cli.js"
   },
   "dependencies": {
-    "@clack/prompts": "^0.8.1",
+    "@clack/prompts": "^0.8.2",
     "@xiaoshop/shared": "workspace:*",
     "cli-table3": "^0.6.5",
     "commander": "^12.1.0",
@@ -46,13 +48,13 @@
   },
   "devDependencies": {
     "@types/html-minifier": "^4.0.5",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.2",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "rimraf": "5.0.0",
     "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   },
   "packageManager": "pnpm@9.14.2"
 }
