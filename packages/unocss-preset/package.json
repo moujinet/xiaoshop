@@ -1,0 +1,48 @@
+{
+  "name": "@xiaoshop/unocss-preset",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XiaoShop 云链小店 (@unocss-preset)",
+  "homepage": "https://github.com/moujinet/xiaoshop#readme",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/unocss-preset"
+  },
+  "license": "Apache-2.0",
+  "author": "Allen Luo <luoyi@mouji.net>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "postinstall": "nr build",
+    "stub": "unbuild --stub"
+  },
+  "devDependencies": {
+    "@unocss/core": "^0.64.1",
+    "@unocss/preset-mini": "^0.64.1",
+    "unbuild": "^2.0.0",
+    "unocss": "^0.64.1"
+  },
+  "peerDependenciesMeta": {
+    "unocss": {
+      "optional": true
+    }
+  }
+}
