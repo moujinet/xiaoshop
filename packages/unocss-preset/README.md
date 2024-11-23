@@ -1,10 +1,10 @@
-# @xiaoshop/unocss-preset-arco
+# @xiaoshop/unocss-preset
 
 ## 使用
 
 ```ts
 // uno.config.ts
-import presetArco from '@xiaoshop/unocss-preset-arco'
+import { presetArco } from '@xiaoshop/unocss-preset'
 import { defineConfig, presetUno } from 'unocss'
 
 export default defineConfig({

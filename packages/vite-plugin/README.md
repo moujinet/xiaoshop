@@ -1,4 +1,4 @@
-# @xiaoshop/vite-plugin-less-sitter
+# @xiaoshop/vite-plugin
 
 将 less 文件中的变量 `@Variables` 写入 `vite.config.ts` 的 `css.preprocessorOptions.less.modifyVars` 中。
 
@@ -7,7 +7,7 @@
 ```ts
 import type { UserConfig } from 'vite'
 
-import ViteLessSitter from '@xiaoshop/vite-plugin-less-sitter'
+import { ViteLessSitter } from '@xiaoshop/vite-plugin'
 
 export default (): UserConfig => {
   plugins: [
