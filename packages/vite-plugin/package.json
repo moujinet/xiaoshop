@@ -1,17 +1,20 @@
 {
-  "name": "@xiaoshop/vite-plugin-less-sitter",
+  "name": "@xiaoshop/vite-plugin",
   "version": "1.0.0",
-  "description": "XiaoShop 云链小店 (@vite-plugin-less-sitter)",
+  "private": true,
+  "description": "XiaoShop 云链小店 (@vite-plugin)",
   "homepage": "https://github.com/moujinet/xiaoshop#readme",
   "bugs": {
     "url": "https://github.com/moujinet/xiaoshop/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moujinet/xiaoshop.git"
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/vite-plugin"
   },
   "license": "Apache-2.0",
   "author": "Allen Luo <luoyi@mouji.net>",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,7 +32,7 @@
     "build": "tsup src/index.ts --dts",
     "dev": "pnpm run build --watch",
     "lint": "eslint .",
-    "prepublishOnly": "pnpm run build",
+    "postinstall": "pnpm run build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -37,10 +40,10 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.2",
     "pnpm": "^9.14.2",
     "tsup": "^8.3.5",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vite": "^5.4.11"
   },
   "peerDependencies": {

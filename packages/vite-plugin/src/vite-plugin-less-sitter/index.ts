@@ -4,7 +4,7 @@ import type { IViteLessSitterOptions } from './types'
 import { MODULE_ID } from './constants'
 import { modifyLessVars } from './less'
 
-function ViteLessSitter(options: IViteLessSitterOptions): Plugin {
+export function ViteLessSitter(options: IViteLessSitterOptions): Plugin {
   const {
     imports = [],
   } = options
@@ -13,9 +13,7 @@ function ViteLessSitter(options: IViteLessSitterOptions): Plugin {
     name: MODULE_ID,
 
     async config(config: UserConfig) {
-      await modifyLessVars(config, imports)
+      modifyLessVars(config, imports)
     },
   }
 }
-
-export default ViteLessSitter
