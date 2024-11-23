@@ -4,13 +4,12 @@ import type { Variables } from './types'
 import Debug from 'debug'
 import { MODULE_ID } from './constants'
 import { parseLessVariables } from './parser'
+import { transformThemeColors } from './transform'
 import { readFileContent } from './utils'
 
-const debug = {
-  import: Debug(`${MODULE_ID}:imports`),
-}
+const debug = Debug(`${MODULE_ID}:imports`)
 
-export function modifyLessVars(config: UserConfig, imports: string[]): void {
+export function modifyLessVars(config: UserConfig, imports: string[], simplify?: boolean): void {
   const vars: Variables = {}
 
   for (const importPath of imports) {
@@ -18,11 +17,16 @@ export function modifyLessVars(config: UserConfig, imports: string[]): void {
 
     if (less) {
       const variables = parseLessVariables(less)
-      Object.assign(vars, variables)
-      debug.import(importPath, variables)
+
+      Object.assign(
+        vars,
+        simplify ? transformThemeColors(variables) : variables,
+      )
+
+      debug(importPath, vars)
     }
     else {
-      debug.import(importPath, 'not found')
+      debug(importPath, 'not found')
     }
   }
 

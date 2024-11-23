@@ -7,13 +7,14 @@ import { modifyLessVars } from './less'
 export function ViteLessSitter(options: IViteLessSitterOptions): Plugin {
   const {
     imports = [],
+    simplify = false,
   } = options
 
   return {
     name: MODULE_ID,
 
     async config(config: UserConfig) {
-      modifyLessVars(config, imports)
+      modifyLessVars(config, imports, simplify)
     },
   }
 }
