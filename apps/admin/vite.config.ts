@@ -1,25 +1,27 @@
 import type { ConfigEnv, PluginOption, UserConfig } from 'vite'
 
 import path from 'node:path'
-import { loadEnv } from 'vite'
-import UnoCSS from 'unocss/vite'
+
 import Vue from '@vitejs/plugin-vue'
-import Icons from 'unplugin-icons/vite'
-import SvgLoader from 'vite-svg-loader'
-import { VitePWA } from 'vite-plugin-pwa'
-import Inspect from 'vite-plugin-inspect'
 import VueJsx from '@vitejs/plugin-vue-jsx'
-import Layouts from 'vite-plugin-vue-layouts'
+import UnoCSS from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import { ViteLessSitter } from '@xiaoshop/vite-plugin'
 import VueComponents from 'unplugin-vue-components/vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Layouts from 'vite-plugin-vue-layouts'
+import SvgLoader from 'vite-svg-loader'
+import Inspect from 'vite-plugin-inspect'
+
+import { loadEnv } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
 import { unheadVueComposablesImports } from '@unhead/vue'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+import { ViteLessSitter } from '@xiaoshop/vite-plugin'
 
 const plugins: PluginOption[] = [
   Vue(),
@@ -78,7 +80,7 @@ const plugins: PluginOption[] = [
       ArcoResolver(),
     ],
     vueTemplate: true,
-    injectAtEnd: true,
+    injectAtEnd: false,
   }),
 
   // https://github.com/unplugin/unplugin-vue-components
@@ -134,8 +136,11 @@ const plugins: PluginOption[] = [
   // packages/vite-plugin-less-sitter
   ViteLessSitter({
     imports: [
-      './src/styles/override.less',
+      './src/styles/theme/_override/accent.less',
+      './src/styles/theme/_override/light.less',
+      './src/styles/theme/_override/dark.less',
     ],
+    simplify: true,
   }),
 ]
 
