@@ -1,34 +1,31 @@
-import type {
-  IContext,
-  IContextCallback,
-} from '~/runtime/context'
+import type { IContext, IContextCallback } from './context'
 
-export type IPlugin = IContextCallback
-
-export type IPluginInstaller = IContextCallback
+export interface IDefinePluginOptions {
+  (ctx: IContext): void
+}
 
 /**
  * 定义插件
  *
- * @param plugin IPlugin
- * @returns IPluginInstaller
+ * @param plugin IDefinePluginOptions
+ * @returns IContextCallback
  */
-export function definePlugin(plugin: IPlugin): IPluginInstaller {
+export function definePlugin(plugin: IDefinePluginOptions): IContextCallback {
   return (ctx: IContext) => plugin(ctx)
 }
 
 /**
- * 加载插件
+ * 安装插件
  *
  * @param ctx IContext
  */
-export function loadPlugins(ctx: IContext): void {
-  const plugins = import.meta.glob<IPluginInstaller>('~/plugins/**/install.ts', {
+export function installPlugins(ctx: IContext) {
+  const plugins = import.meta.glob<IContextCallback>('~/plugins/**/install.ts', {
     eager: true,
     import: 'default',
   })
 
-  for (const middleware of Object.values(plugins)) {
-    middleware(ctx)
+  for (const install of Object.values(plugins)) {
+    install(ctx)
   }
 }

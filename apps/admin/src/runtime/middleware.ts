@@ -1,26 +1,21 @@
-import type {
-  IContext,
-  IContextCallback,
-} from '~/runtime/context'
+import type { IContext, IContextCallback } from './context'
 import type {
   NavigationGuard,
   NavigationGuardNext,
   RouteLocationNormalized,
 } from 'vue-router'
 
-export interface IMiddleware {
+export interface IDefineMiddlewareOptions {
   (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext): ReturnType<NavigationGuard>
 }
-
-export type IMiddlewareInstaller = IContextCallback
 
 /**
  * 定义中间件
  *
- * @param middleware IMiddleware
- * @returns IMiddlewareInstaller
+ * @param middleware IDefineMiddlewareOptions
+ * @returns IContextCallback
  */
-export function defineMiddleware(middleware: IMiddleware): IMiddlewareInstaller {
+export function defineMiddleware(middleware: IDefineMiddlewareOptions): IContextCallback {
   return ({ router }) => {
     router.beforeEach((to, from, next) => {
       if (!middleware(to, from, next))
@@ -30,17 +25,17 @@ export function defineMiddleware(middleware: IMiddleware): IMiddlewareInstaller 
 }
 
 /**
- * 加载中间件
+ * 安装中间件
  *
  * @param ctx IContext
  */
-export function loadMiddlewares(ctx: IContext): void {
-  const middlewares = import.meta.glob<IMiddlewareInstaller>('~/middleware/**/*.ts', {
+export function installMiddlewares(ctx: IContext): void {
+  const middlewares = import.meta.glob<IContextCallback>('~/middleware/**/*.ts', {
     eager: true,
     import: 'default',
   })
 
-  for (const middleware of Object.values(middlewares)) {
-    middleware(ctx)
+  for (const install of Object.values(middlewares)) {
+    install(ctx)
   }
 }
