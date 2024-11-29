@@ -47,49 +47,13 @@ const palettes = names.reduce((palette, name) => {
 export const colors = {
   ...palettes,
 
-  border: {
-    DEFAULT: 'var(--color-border-2)',
-    1: 'var(--color-border-1)',
-    2: 'var(--color-border-2)',
-    3: 'var(--color-border-3)',
-    4: 'var(--color-border-4)',
-  },
-  fill: {
-    DEFAULT: 'var(--color-fill-2)',
-    1: 'var(--color-fill-1)',
-    2: 'var(--color-fill-2)',
-    3: 'var(--color-fill-3)',
-    4: 'var(--color-fill-4)',
-  },
-  text: {
-    DEFAULT: 'var(--color-text-2)',
-    1: 'var(--color-text-1)',
-    2: 'var(--color-text-2)',
-    3: 'var(--color-text-3)',
-    4: 'var(--color-text-4)',
-  },
   secondary: {
     DEFAULT: 'var(--color-secondary)',
     hover: 'var(--color-secondary-hover)',
     active: 'var(--color-secondary-active)',
     disabled: 'var(--color-secondary-disabled)',
   },
-  white: {
-    DEFAULT: 'var(--color-white)',
-  },
-  black: {
-    DEFAULT: 'var(--color-black)',
-  },
-  panel: {
-    DEFAULT: 'var(--color-bg-1)',
-  },
-  card: {
-    DEFAULT: 'var(--color-bg-2)',
-  },
-  modal: {
-    DEFAULT: 'var(--color-bg-3)',
-  },
-  popup: {
-    DEFAULT: 'var(--color-bg-popup)',
-  },
+
+  white: 'var(--color-white)',
+  black: 'var(--color-black)',
 } satisfies Theme['colors']
