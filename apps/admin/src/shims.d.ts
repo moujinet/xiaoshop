@@ -1,4 +1,5 @@
 import 'vue-router/auto'
+import type { IModuleMeta } from '#/metadata'
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -20,8 +21,6 @@ declare module 'vue' {
 }
 
 declare module 'vue-router' {
-  import type { IModuleMeta } from '~/runtime/module/meta'
-
   interface RouteMeta extends Partial<IModuleMeta> {
     isLayout?: boolean
   }
