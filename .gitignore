@@ -8,3 +8,6 @@ dist
 apps/admin/src/auto-imports.d.ts
 apps/admin/src/typed-router.d.ts
 apps/admin/src/vue-components.d.ts
+
+# docs
+docs/.vitepress/cache

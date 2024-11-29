@@ -28,6 +28,11 @@
     { "rule": "*semi", "severity": "off" }
   ],
 
+  // Support custom CSS at-rules like `@apply`, `@screen`, `@media`, etc
+  "css.customData": [
+    "./.vscode/unocss.json"
+  ],
+
   // Enable eslint for all supported languages
   "eslint.validate": [
     "javascript",
@@ -58,6 +63,8 @@
     "alova",
     "apiclient",
     "arcoblue",
+    "arrowdown",
+    "arrowup",
     "badrequest",
     "cacheable",
     "cardano",

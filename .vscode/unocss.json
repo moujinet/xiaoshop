@@ -1,0 +1,25 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@apply",
+      "description": "Use the `@apply` directive to inline any existing utility classes into your own custom CSS. This is useful when you find a common utility pattern in your HTML that you’d like to extract to a new component.",
+      "references": [
+        {
+          "name": "UnoCSS Documentation",
+          "url": "https://unocss.dev/transformers/directives#apply"
+        }
+      ]
+    },
+    {
+      "name": "@screen",
+      "description": "The `@screen` directive that allows you to create media queries that reference your breakpoints by name comes from `theme.breakpoints`.",
+      "references": [
+        {
+          "name": "UnoCSS Documentation",
+          "url": "https://unocss.dev/transformers/directives#screen"
+        }
+      ]
+    }
+  ]
+}

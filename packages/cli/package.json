@@ -44,11 +44,11 @@
     "picocolors": "^1.1.1",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20",
-    "zx": "^8.2.2"
+    "zx": "^8.2.4"
   },
   "devDependencies": {
     "@types/html-minifier": "^4.0.5",
-    "@types/node": "^22.9.2",
+    "@types/node": "^22.10.1",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "rimraf": "5.0.0",
@@ -56,5 +56,5 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@9.14.2"
+  "packageManager": "pnpm@9.14.3"
 }

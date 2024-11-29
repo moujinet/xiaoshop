@@ -39,7 +39,6 @@ export default antfu(
   },
   {
     files: [
-      'apps/**/*.ts',
       'service/nestjs/**/*.ts',
       'packages/cli/**/*.ts',
       'packages/shared/src/**/*.ts',
@@ -61,6 +60,15 @@ export default antfu(
           ],
         },
       ],
+    },
+  },
+  {
+    files: [
+      'apps/**/*.ts',
+    ],
+    rules: {
+      'perfectionist/sort-exports': 'off',
+      'perfectionist/sort-imports': 'off',
     },
   },
 )
