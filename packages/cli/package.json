@@ -35,7 +35,7 @@
     "cli-table3": "^0.6.5",
     "commander": "^12.1.0",
     "defu": "^6.1.4",
-    "es-toolkit": "^1.27.0",
+    "es-toolkit": "^1.29.0",
     "glob": "^11.0.0",
     "handlebars": "^4.7.8",
     "html-minifier": "^4.0.0",
@@ -56,5 +56,5 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@9.14.3"
+  "packageManager": "pnpm@9.14.4"
 }
