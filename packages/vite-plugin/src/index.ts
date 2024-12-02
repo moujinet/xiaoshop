@@ -1,1 +1,1 @@
-export * from './vite-plugin-less-sitter'
+export * from './less-sitter'

@@ -1,5 +1,5 @@
 import presetWebFonts from '@unocss/preset-web-fonts'
-import { presetArco } from '@xiaoshop/unocss-preset'
+import { presetTheme } from '@xiaoshop/unocss-theme'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import {
   defineConfig,
@@ -12,41 +12,13 @@ import { colors } from './src/constants/colors'
 export default defineConfig({
   shortcuts: [
     {
-      // Background
-      'bg-body': 'bg-$bg-body',
-      'bg-layout': 'bg-$bg-layout',
-      'bg-header': 'bg-$bg-header',
-      'bg-sidebar': 'bg-$bg-sidebar',
-      'bg-toolbar': 'bg-$bg-toolbar',
-      'bg-activity-indicator': 'bg-$bg-activity-indicator',
-      'bg-activity-panel': 'bg-$bg-activity-panel',
-
       // Text
-      'text-body': 'text-$text-body',
-      'text-heading': 'text-$text-heading',
-      'text-secondary': 'text-$text-secondary',
-      'text-comment': 'text-$text-comment',
+      'text-title': 'c-$color-text-1',
+      'text-body': 'c-$color-text-2',
+      'text-info': 'c-$color-text-3',
+      'text-disable': 'c-$color-text-4',
 
-      // Border
-      'b-sidebar': 'b-$sidebar',
-      'b-activity': 'b-$activity',
-      'b-activity-indicator': 'b-$activity-indicator',
-      'b-toolbar': 'b-$toolbar',
-
-      // Padding
-      'p-content': 'p-$content',
-
-      // Width
-      'w-sidebar': 'w-$sidebar',
-      'w-sidebar-collapsed': 'w-$sidebar-collapsed',
-      'w-activity-indicator': 'w-$activity-indicator',
-      'w-activity-panel': 'w-$activity-panel',
-
-      // Height
-      'h-header': 'h-$header',
-      'h-toolbar': 'h-$toolbar',
-
-      // utils
+      // Utils
       'flex-center': 'items-center justify-center',
       'flex-v-center': 'items-center',
       'flex-h-center': 'justify-center',
@@ -55,7 +27,9 @@ export default defineConfig({
   ],
   presets: [
     presetUno(),
-    presetArco(),
+    presetTheme({
+      library: 'arco',
+    }),
     presetWebFonts({
       provider: 'fontshare',
       fonts: {

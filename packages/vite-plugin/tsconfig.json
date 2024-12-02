@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2018",
     "module": "ESNext",
     "lib": ["ESNext"],
@@ -9,7 +10,11 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "paths": {
+      "~/*": ["src/*"],
+      "~~/*": ["./*"]
+    },
   },
   "include": ["./src", "./test"],
   "exclude": ["node_modules", "**/dist"]

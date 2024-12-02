@@ -14,6 +14,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Layouts from 'vite-plugin-vue-layouts'
 import SvgLoader from 'vite-svg-loader'
 import Inspect from 'vite-plugin-inspect'
+import Autoprefixer from 'autoprefixer'
+import PostcssNested from 'postcss-nested'
 
 import { loadEnv } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -21,7 +23,7 @@ import { unheadVueComposablesImports } from '@unhead/vue'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
-import { ViteLessSitter } from '@xiaoshop/vite-plugin'
+import { ViteThemePlugin } from '@xiaoshop/vite-plugin'
 
 const plugins: PluginOption[] = [
   Vue(),
@@ -134,13 +136,14 @@ const plugins: PluginOption[] = [
   }),
 
   // packages/vite-plugin-less-sitter
-  ViteLessSitter({
+  ViteThemePlugin({
     imports: [
-      './src/styles/theme/_override/accent.less',
+      './src/styles/theme/_override/colors.less',
       './src/styles/theme/_override/light.less',
       './src/styles/theme/_override/dark.less',
+      './src/styles/theme/_override/components.less',
     ],
-    simplify: true,
+    transformer: 'arco',
   }),
 ]
 
@@ -182,6 +185,15 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       include: [
         '@arco-design/web-vue',
       ],
+    },
+
+    css: {
+      postcss: {
+        plugins: [
+          Autoprefixer(),
+          PostcssNested(),
+        ],
+      },
     },
 
     plugins: [
