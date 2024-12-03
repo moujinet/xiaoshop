@@ -7,7 +7,7 @@ defineOptions({
 <template>
   <UiEmpty type="notfound">
     <div class="flex-(~ col v-center)">
-      <h3 class="text-(6 $theme-title) mt-8 mb-0">
+      <h3 class="text-(title-lg text-1) mt-8 mb-0">
         这个页面走丢了
       </h3>
 
@@ -21,3 +21,14 @@ defineOptions({
     </div>
   </UiEmpty>
 </template>
+
+<style lang="less">
+#app {
+  height: 100%;
+}
+</style>
+
+<route lang="yaml">
+meta:
+  layout: empty
+</route>

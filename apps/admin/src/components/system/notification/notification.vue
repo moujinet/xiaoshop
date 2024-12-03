@@ -4,7 +4,6 @@ defineOptions({
 })
 
 const unread = ref(1)
-const visible = ref(false)
 
 const tooltip = computed(() => {
   if (unread.value > 0) {
@@ -15,16 +14,13 @@ const tooltip = computed(() => {
 </script>
 
 <template>
-  <SystemToolbarIcon
+  <UiIndicator
     icon="chat-4"
     position="br"
-    active-icon-class="color-$theme-primary"
+    active-class="c-primary hover:c-primary"
     :badge="unread"
     :tooltip="tooltip"
     :default-tooltip-visible="unread > 0"
-    :active-icon="unread > 0"
-    @click="visible = true"
+    :active="unread > 0"
   />
-
-  <SystemNotificationDrawer v-model:visible="visible" />
 </template>

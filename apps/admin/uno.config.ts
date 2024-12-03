@@ -10,6 +10,11 @@ import {
 import { colors } from './src/constants/colors'
 
 export default defineConfig({
+  theme: {
+    colors: {
+      accent: 'rgba(var(--accent) / <alpha-value>)',
+    },
+  },
   shortcuts: [
     {
       // Text

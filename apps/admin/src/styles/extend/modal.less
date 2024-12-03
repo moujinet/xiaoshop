@@ -1,0 +1,14 @@
+.arco-modal {
+  background-color: rgba(get-rgb-str(@color-bg-3), 0.7);
+  backdrop-filter: blur(20px);
+
+  &-mask {
+    backdrop-filter: blur(4px);
+  }
+}
+
+body[arco-theme='dark'] {
+  .arco-modal {
+    background-color: rgba(get-rgb-str(@dark-color-bg-3), 0.7);
+  }
+}

@@ -25,6 +25,8 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import { ViteThemePlugin } from '@xiaoshop/vite-plugin'
 
+import { homepage, repository, version } from './package.json'
+
 const plugins: PluginOption[] = [
   Vue(),
 
@@ -135,13 +137,13 @@ const plugins: PluginOption[] = [
     },
   }),
 
-  // packages/vite-plugin-less-sitter
+  // packages/vite-plugin
   ViteThemePlugin({
     imports: [
-      './src/styles/theme/_override/colors.less',
-      './src/styles/theme/_override/light.less',
-      './src/styles/theme/_override/dark.less',
-      './src/styles/theme/_override/components.less',
+      './src/styles/override/colors.less',
+      './src/styles/override/light.less',
+      './src/styles/override/dark.less',
+      './src/styles/override/components.less',
     ],
     transformer: 'arco',
   }),
@@ -194,6 +196,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
           PostcssNested(),
         ],
       },
+    },
+
+    define: {
+      __VERSION__: JSON.stringify(version),
+      __HOMEPAGE__: JSON.stringify(homepage),
+      __REPOSITORY__: JSON.stringify(repository.url),
     },
 
     plugins: [

@@ -3,7 +3,6 @@ import type { ILocationNested, ILocationPath } from '@xiaoshop/shared'
 import { cloneDeep } from 'es-toolkit/compat'
 
 export type ILocationCode = ILocationNested['code']
-
 export type IUseRegionDataKey = 'provinces' | 'cities' | 'areas' | 'streets'
 
 interface IUseRegionDataReturns {
@@ -107,7 +106,7 @@ export function useRegionData(): IUseRegionDataReturns {
     key: IUseRegionDataKey,
     banded?: ILocationCode[],
   ): Promise<ILocationNested[]> {
-    const data = await localResource.Get<ILocationNested[]>(`/assets/json/${key}.json`)
+    const data = await localAssets.Get<ILocationNested[]>(`/json/${key}.json`)
 
     if (!banded)
       return data

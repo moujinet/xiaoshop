@@ -20,6 +20,15 @@ export function useMessage(options?: IUseMessageOptions) {
     onClose,
   } = options || {}
 
+  const config = {
+    id,
+    duration,
+    showIcon,
+    closable,
+    onClose,
+    resetOnHover: true,
+  }
+
   return {
     /**
      * 显示信息消息
@@ -28,7 +37,7 @@ export function useMessage(options?: IUseMessageOptions) {
      * @param args Record<string, string>
      */
     info: (message: string, args: Record<string, string> = {}) => {
-      ArcoMessage.info({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
+      ArcoMessage.info({ ...config, content: replaceVariables(message, args) })
     },
 
     /**
@@ -38,7 +47,7 @@ export function useMessage(options?: IUseMessageOptions) {
      * @param args Record<string, string>
      */
     success: (message: string, args: Record<string, string> = {}) => {
-      ArcoMessage.success({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
+      ArcoMessage.success({ ...config, content: replaceVariables(message, args) })
     },
 
     /**
@@ -48,7 +57,7 @@ export function useMessage(options?: IUseMessageOptions) {
      * @param args Record<string, string>
      */
     error: (message: string, args: Record<string, string> = {}) => {
-      ArcoMessage.error({ id, content: replaceVariables(message, args), duration, closable, showIcon, resetOnHover: true, onClose })
+      ArcoMessage.error({ ...config, content: replaceVariables(message, args) })
     },
 
     /**
@@ -57,7 +66,7 @@ export function useMessage(options?: IUseMessageOptions) {
      * @param content string
      */
     loading: (content: string = '加载中...') => {
-      ArcoMessage.loading({ id, content, duration, closable: false, showIcon, onClose })
+      ArcoMessage.loading({ ...config, content })
     },
   }
 }

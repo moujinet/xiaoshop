@@ -30,3 +30,8 @@ export function getGreeting() {
 export function replaceVariables(str: string, obj: Record<string, any>) {
   return str.replace(/\{([^}]+)\}/g, (_, key) => obj[key] || '')
 }
+
+/**
+ * 空函数
+ */
+export function noopFn() {}

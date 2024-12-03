@@ -8,6 +8,7 @@ module.exports = {
     'no-empty-source': null,
     'custom-property-pattern': null,
     'selector-class-pattern': null,
+    'function-no-unknown': null,
     'selector-pseudo-class-no-unknown': [
       true,
       {

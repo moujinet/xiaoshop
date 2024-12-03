@@ -42,7 +42,6 @@ export type IModuleMenuBreadcrumb = Pick<
 >
 
 const _menus = new Map<string, IModuleMenuStoreDefinition[]>()
-const _breadcrumbs = new Map<string, IModuleMenuBreadcrumb[]>()
 
 export const useModuleMenu = defineStore('menus', () => {
   /**

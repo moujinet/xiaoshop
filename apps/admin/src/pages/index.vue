@@ -5,5 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  IndexPage
+  <a-button type="primary">
+    Button
+  </a-button>
 </template>

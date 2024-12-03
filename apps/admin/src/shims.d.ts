@@ -38,5 +38,9 @@ declare global {
 
   import type { MaybeRef } from 'vue'
 
+  declare const __VERSION__: string
+  declare const __HOMEPAGE__: string
+  declare const __REPOSITORY__: string
+
   type MaybeRefOrGetter<T> = MaybeRef<T> | (() => T)
 }
