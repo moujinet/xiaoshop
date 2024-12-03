@@ -35,7 +35,10 @@ function wrapper(color: string): ILessVariables {
 
   // Dark
   for (let i = 1; i <= 10; i++) {
-    wrapped[`dark-${color}-${i}`] = `rgb(get-rgb-str(color-palette-dark(@${color}, ${i})))`
+    if (i === 6)
+      wrapped[`dark-${color}-${i}`] = `rgb(get-rgb-str(@${color}))`
+    else
+      wrapped[`dark-${color}-${i}`] = `rgb(get-rgb-str(color-palette-dark(@${color}, ${i})))`
   }
 
   return wrapped

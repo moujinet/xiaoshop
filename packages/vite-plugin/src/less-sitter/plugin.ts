@@ -41,6 +41,8 @@ export function ViteThemePlugin(options: IViteThemePluginOptions): Plugin {
             const transformed = transformer(variables, transformNames.concat(DEFAULT_TRANSFORM_NAMES))
 
             Object.assign(modifyVars, transformed)
+
+            debug('transformer', transformerName, modifyVars)
           }
 
           debug(lessFile, variables)
