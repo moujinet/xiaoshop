@@ -20,6 +20,5 @@ export const DEFAULT_TRANSFORM_NAMES = [
   'purple',
   'pinkpurple',
   'magenta',
-  'gray',
   'neutral',
 ]
