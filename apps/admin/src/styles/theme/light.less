@@ -1,22 +1,22 @@
 body {
   // Accent
-  --accent: 0, 0, 0;
+  --accent: var(--gray-10);
 
   // Layout
-  --layout-bg: var(--color-neutral-2);
-  --layout-content-padding: 16px 24px;
+  --layout-bg: #fff;
+  --layout-content-padding: 8px 24px;
 
   // Menu & Dropdown
-  --menu-icon-color: var(--color-text-3);
-  --menu-icon-color-hover: var(--color-text-2);
+  --menu-icon-color: var(--color-text-2);
+  --menu-icon-color-hover: var(--color-text-1);
   --menu-icon-active-color: rgba(var(--accent));
 
   // Tooltip
-  --tooltip-bg: var(--color-neutral-8);
+  --tooltip-bg: var(--color-neutral-10);
 
   // Sidebar
   --sidebar-bg: #fff;
-  --sidebar-shadow: 1px 0 3px rgb(0 0 0 / 5%);
+  // --sidebar-shadow: 1px 0 3px rgb(0 0 0 / 4%);
   --sidebar-width: var(--activity-width);
   --sidebar-collapsed-width: var(--indicator-width);
   --sidebar-border-width: 0 1px 0 0;
@@ -34,10 +34,10 @@ body {
 
   // Activity
   --activity-bg: transparent;
-  --activity-width: 280px;
+  --activity-width: 270px;
 
   // Activity Indicator
-  --indicator-bg: #fff;
+  --indicator-bg: transparent;
   --indicator-width: 56px;
   --indicator-border-width: 0;
   --indicator-icon-color: var(--menu-icon-color);

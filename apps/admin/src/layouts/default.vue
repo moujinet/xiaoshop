@@ -23,47 +23,47 @@ const collapse = usePreference('collapseActivity')
     </aside>
 
     <div class="layout-main">
-      <div class="layout-toolbar">
-        <div class="layout-toolbar--inner">
-          <a-space size="mini">
-            <SystemWorkspaceSwitch />
+      <UiScrollbar>
+        <div class="layout-toolbar">
+          <div class="layout-toolbar--inner">
+            <a-space size="mini">
+              <SystemWorkspaceSwitch />
 
-            <a-breadcrumb v-if="route.meta" class="layout-breadcrumb">
-              <template v-for="item in route.matched.filter(r => r.meta.id)" :key="item.name">
-                <a-breadcrumb-item>
-                  {{ item.meta.name }}
-                </a-breadcrumb-item>
+              <a-breadcrumb v-if="route.meta" class="layout-breadcrumb">
+                <template v-for="item in route.matched.filter(r => r.meta.id)" :key="item.name">
+                  <a-breadcrumb-item>
+                    {{ item.meta.name }}
+                  </a-breadcrumb-item>
+                </template>
+              </a-breadcrumb>
+            </a-space>
+
+            <a-space size="mini">
+              <template #split>
+                <a-divider direction="vertical" />
               </template>
-            </a-breadcrumb>
-          </a-space>
 
-          <a-space size="mini">
-            <template #split>
-              <a-divider direction="vertical" />
-            </template>
+              <SystemSearch />
 
-            <SystemSearch />
+              <a-space>
+                <SystemColorSchemaSwitch />
+                <SystemPreviewer />
+              </a-space>
 
-            <a-space>
-              <SystemColorSchemaSwitch />
-              <SystemPreviewer />
+              <a-space>
+                <SystemUsermenu />
+                <SystemNotification />
+              </a-space>
             </a-space>
-
-            <a-space>
-              <SystemUsermenu />
-              <SystemNotification />
-            </a-space>
-          </a-space>
+          </div>
         </div>
-      </div>
 
-      <div class="layout-content">
-        <UiScrollbar>
+        <div class="layout-content">
           <div class="layout-content--inner">
             <RouterView />
           </div>
-        </UiScrollbar>
-      </div>
+        </div>
+      </UiScrollbar>
     </div>
   </main>
 </template>

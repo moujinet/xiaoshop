@@ -28,7 +28,7 @@ defineEmits(['click'])
           />
 
           <template v-else>
-            <SystemActivityMenuGroup :name="menu.name">
+            <SystemActivityMenuGroup :icon="menu.icon" :name="menu.name">
               <SystemActivityMenuItem
                 v-for="child in menu.children" :key="child.id"
                 :icon="child.icon"

@@ -19,7 +19,7 @@ defineProps<{
 
 <style>
 .activity-menu-item {
-  @apply flex-(~ v-center) gap-2 p-(x-3.5 y-3) hover:bg-$color-fill-2 rounded cursor-pointer transition-colors;
+  @apply flex-(~ v-center) gap-2 p-(x-4 y-2.5) hover:bg-$color-fill-3 rounded cursor-pointer transition-colors;
 
   &__icon {
     @apply text-(4 $menu-icon-color);
