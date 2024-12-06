@@ -1,19 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "declaration": true,
-    "module": "commonjs",
     "target": "ES2021",
-    "skipLibCheck": true,
-    "sourceMap": false,
-    "strict": true,
-    "resolveJsonModule": true,
-    "useUnknownInCatchVariables": false,
-    "types": [
-      "node",
-      "./types"
-    ],
+    "baseUrl": "./src",
+    "module": "commonjs",
     "paths": {
       "@/*": [
         "./*"
@@ -22,6 +11,17 @@
         "../*"
       ]
     },
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "./types"
+    ],
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "declaration": true,
+    "outDir": "./dist",
+    "sourceMap": false,
+    "skipLibCheck": true
   },
   "include": ["src", "./types/**/*.d.ts"],
   "exclude": ["node_modules", "scripts"]

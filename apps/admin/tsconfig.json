@@ -16,7 +16,7 @@
       "vite/client",
       "unplugin-vue-router/client",
       "vite-plugin-vue-layouts/client",
-      "unplugin-vue-define-options/macros-global",
+      "unplugin-vue-define-options/macros-global"
     ],
     "verbatimModuleSyntax": true
   },
@@ -30,7 +30,7 @@
   "exclude": [
     "public",
     "dist",
-    "node_modules",
+    "node_modules"
   ],
   "vueCompilerOptions": {
     "target": 3,

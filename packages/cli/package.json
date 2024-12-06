@@ -19,8 +19,8 @@
   },
   "files": [
     "dist",
-    "templates",
-    "package.json"
+    "package.json",
+    "templates"
   ],
   "scripts": {
     "prebuild": "rimraf dist",

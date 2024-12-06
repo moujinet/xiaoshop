@@ -4,7 +4,14 @@ export default antfu(
   {
     type: 'app',
 
+    stylistic: {
+      indent: 2,
+      quotes: 'single',
+    },
+
     typescript: true,
+    jsonc: false,
+    yaml: false,
     vue: true,
 
     ignores: [
@@ -15,6 +22,11 @@ export default antfu(
     ],
   },
   {
+    files: [
+      'apps/**/src/**/*.ts',
+      'services/**/src/**/*.ts',
+      'packages/**/src/**/*.ts',
+    ],
     rules: {
       'no-console': 'off',
       'node/no-path-concat': 'off',
@@ -28,7 +40,7 @@ export default antfu(
   },
   {
     files: [
-      'service/nestjs/**/*.ts',
+      'services/**/**/*.ts',
       'packages/cli/**/*.ts',
       'packages/shared/src/**/*.ts',
     ],

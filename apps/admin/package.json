@@ -1,20 +1,21 @@
 {
   "name": "@xiaoshop/admin",
+  "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.14.4",
   "description": "XiaoShop 云链小店 (@admin)",
+  "author": "Allen Luo <luoyi@mouji.net>",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/moujinet/xiaoshop#readme",
-  "bugs": {
-    "url": "https://github.com/moujinet/xiaoshop/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moujinet/xiaoshop.git",
     "directory": "app/admin"
   },
-  "license": "Apache-2.0",
-  "author": "Allen Luo <luoyi@mouji.net>",
-  "type": "module",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
   "scripts": {
     "build": "vite build --mode production",
     "dev": "vite --mode development",
@@ -64,6 +65,5 @@
     "vite-svg-loader": "^5.1.0",
     "vitest": "^2.1.8",
     "vue-tsc": "^2.1.10"
-  },
-  "packageManager": "pnpm@9.14.4"
+  }
 }
