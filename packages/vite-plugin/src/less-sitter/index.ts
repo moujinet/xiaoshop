@@ -1,1 +1,0 @@
-export { ViteThemePlugin } from './plugin'

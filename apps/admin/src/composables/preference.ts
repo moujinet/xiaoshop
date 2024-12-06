@@ -3,9 +3,9 @@ import { useDark, useSessionStorage, useToggle } from '@vueuse/core'
 import {
   DEFAULT_PREFERENCE_ACCENT,
   DEFAULT_PREFERENCE_COLLAPSE_ACTIVITY,
-  DEFAULT_PREFERENCE_COLOR_MODE,
   DEFAULT_PREFERENCE_SHOW_BADGE,
   DEFAULT_PREFERENCE_THEME_COLOR,
+  DEFAULT_PREFERENCE_THEME_MODE,
 } from '~/constants/defaults'
 
 interface IUsePreferenceState {
@@ -16,7 +16,7 @@ interface IUsePreferenceState {
   /**
    * 模式
    */
-  colorMode: 'light' | 'dark' | 'auto'
+  themeMode: 'light' | 'dark' | 'auto'
   /**
    * 主题色
    */
@@ -32,9 +32,8 @@ interface IUsePreferenceState {
 }
 
 export const isDark = useDark({
-  selector: 'body',
-  attribute: 'arco-theme',
-  storageKey: 'arco-theme',
+  attribute: 'theme-mode',
+  storageKey: 'theme-mode',
 })
 
 export const toggleDark = useToggle(isDark)
@@ -42,7 +41,7 @@ export const toggleDark = useToggle(isDark)
 export function useUserPreferences() {
   return useSessionStorage<IUsePreferenceState>('session.preference', {
     accent: DEFAULT_PREFERENCE_ACCENT,
-    colorMode: DEFAULT_PREFERENCE_COLOR_MODE,
+    themeMode: DEFAULT_PREFERENCE_THEME_MODE,
     themeColor: DEFAULT_PREFERENCE_THEME_COLOR,
     showBadge: DEFAULT_PREFERENCE_SHOW_BADGE,
     collapseActivity: DEFAULT_PREFERENCE_COLLAPSE_ACTIVITY,

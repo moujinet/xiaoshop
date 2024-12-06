@@ -5,7 +5,7 @@
     "jsxImportSource": "vue",
     "useDefineForClassFields": true,
     "baseUrl": ".",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["src/modules/*"],
       "#/*": ["src/runtime/*"],
@@ -14,7 +14,6 @@
     },
     "types": [
       "vite/client",
-      "vite-plugin-pwa/client",
       "unplugin-vue-router/client",
       "vite-plugin-vue-layouts/client",
       "unplugin-vue-define-options/macros-global",
@@ -25,10 +24,13 @@
     "src/*.d.ts",
     "src/**/*.ts",
     "src/**/*.vue",
-    "test/**/*.test.ts"
+    "test/**/*.test.ts",
+    "vite.config.ts"
   ],
   "exclude": [
-    "public"
+    "public",
+    "dist",
+    "node_modules",
   ],
   "vueCompilerOptions": {
     "target": 3,

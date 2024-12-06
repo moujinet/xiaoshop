@@ -9,7 +9,7 @@ export const DEFAULT_PREFERENCE_ACCENT = ''
 /**
  * 默认颜色模式
  */
-export const DEFAULT_PREFERENCE_COLOR_MODE = 'light'
+export const DEFAULT_PREFERENCE_THEME_MODE = 'light'
 /**
  * 默认主题色
  */

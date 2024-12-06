@@ -1,6 +1,0 @@
-export * from './colors'
-export * from './default'
-export * from './font'
-export * from './misc'
-export * from './size'
-export * from './transition'

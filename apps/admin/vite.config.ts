@@ -4,26 +4,22 @@ import path from 'node:path'
 
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
-import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import RadixVueResolver from 'radix-vue/resolver'
 import Layouts from 'vite-plugin-vue-layouts'
 import SvgLoader from 'vite-svg-loader'
 import Inspect from 'vite-plugin-inspect'
-import Autoprefixer from 'autoprefixer'
-import PostcssNested from 'postcss-nested'
+import Unocss from 'unocss/vite'
 
 import { loadEnv } from 'vite'
-import { VitePWA } from 'vite-plugin-pwa'
 import { unheadVueComposablesImports } from '@unhead/vue'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-import { ArcoResolver } from 'unplugin-vue-components/resolvers'
-import { ViteThemePlugin } from '@xiaoshop/vite-plugin'
 
 import { homepage, repository, version } from './package.json'
 
@@ -69,20 +65,12 @@ const plugins: PluginOption[] = [
       'vue',
       'pinia',
       {
-        '@arco-design/web-vue': [
-          ['Modal', 'ArcoModal'],
-          ['Message', 'ArcoMessage'],
-          ['Notification', 'ArcoNotification'],
-        ],
         'alova/client': ['useRequest'],
       },
       VueRouterAutoImports,
       unheadVueComposablesImports,
     ],
     dts: 'src/auto-imports.d.ts',
-    resolvers: [
-      ArcoResolver(),
-    ],
     vueTemplate: true,
     injectAtEnd: false,
   }),
@@ -105,15 +93,9 @@ const plugins: PluginOption[] = [
         componentPrefix: 'icon',
         customCollections: ['empty', 'brand'],
       }),
-      ArcoResolver({
-        importStyle: 'less',
-        sideEffect: true,
-      }),
+      RadixVueResolver(),
     ],
   }),
-
-  // https://github.com/unocss/unocss
-  UnoCSS(),
 
   // https://github.com/unplugin/unplugin-icons
   Icons({
@@ -137,24 +119,14 @@ const plugins: PluginOption[] = [
     },
   }),
 
-  // packages/vite-plugin
-  ViteThemePlugin({
-    imports: [
-      './src/styles/override/colors.less',
-      './src/styles/override/light.less',
-      './src/styles/override/dark.less',
-      './src/styles/override/components.less',
-    ],
-    transformer: 'arco',
-  }),
+  // https://github.com/antfu/unocss
+  Unocss(),
 ]
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const {
     VITE_BASE_URL,
-    VITE_APP_NAME,
-    VITE_APP_NAME_SHORT,
   } = loadEnv(mode, root)
 
   return {
@@ -162,7 +134,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     build: {
       target: 'es2015',
-      sourcemap: true,
+      sourcemap: false,
     },
 
     resolve: {
@@ -183,21 +155,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       pure: mode === 'production' ? ['console.log', 'debugger'] : [],
     },
 
-    optimizeDeps: {
-      include: [
-        '@arco-design/web-vue',
-      ],
-    },
-
-    css: {
-      postcss: {
-        plugins: [
-          Autoprefixer(),
-          PostcssNested(),
-        ],
-      },
-    },
-
     define: {
       __VERSION__: JSON.stringify(version),
       __HOMEPAGE__: JSON.stringify(homepage),
@@ -212,39 +169,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         dev: mode === 'development',
       }),
 
-      // https://github.com/antfu/vite-plugin-pwa
-      VitePWA({
-        registerType: 'autoUpdate',
-        includeAssets: [
-          'android-chrome-512x512.png',
-          'android-chrome-192x192.png',
-          'safari-pinned-tab.svg',
-          'favicon.ico',
-        ],
-        manifest: {
-          name: VITE_APP_NAME,
-          short_name: VITE_APP_NAME_SHORT,
-          theme_color: '#0055ff',
-          icons: [
-            {
-              src: '/android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-            },
-            {
-              src: '/android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-            },
-            {
-              src: '/android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any maskable',
-            },
-          ],
-        },
-      }),
     ],
   }
 }

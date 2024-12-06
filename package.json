@@ -17,20 +17,16 @@
   "scripts": {
     "cli": "cross-env NODE_ENV=development xiaoshop",
     "commit": "czg",
-    "prepare": "simple-git-hooks",
-    "stylelint": "stylelint apps/**/src/**/*.{html,vue,css,less}",
-    "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:dev": "vitepress dev docs",
+    "docs:preview": "vitepress preview docs",
+    "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{vue,ts,tsx,js,jsx}": "eslint --fix",
-    "*.{html,vue,less}": [
-      "pnpm stylelint --fix"
-    ]
+    "*.{vue,ts,tsx,js,jsx}": "eslint --fix"
   },
   "config": {
     "commitizen": {
@@ -45,6 +41,8 @@
     "@antfu/ni": "^0.23.1",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
+    "@unocss/eslint-config": "^0.65.1",
+    "@unocss/eslint-plugin": "^0.65.1",
     "@xiaoshop/cli": "workspace:*",
     "commitizen": "^4.3.1",
     "cross-env": "^7.0.3",
@@ -56,12 +54,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "lint-staged": "^15.2.10",
     "pnpm": "^9.14.4",
-    "postcss-html": "^1.7.0",
-    "postcss-less": "^6.0.0",
     "simple-git-hooks": "^2.11.1",
-    "stylelint": "^16.11.0",
-    "stylelint-config-standard": "^36.0.1",
-    "stylelint-order": "^6.0.4",
     "typescript": "^5.7.2",
     "vitepress": "^1.5.0"
   },

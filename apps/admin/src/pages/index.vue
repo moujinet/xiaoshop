@@ -5,7 +5,5 @@ defineOptions({
 </script>
 
 <template>
-  <a-button type="primary">
-    Button
-  </a-button>
+  Hello
 </template>

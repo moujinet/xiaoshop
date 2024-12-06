@@ -2,16 +2,9 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    type: 'lib',
-
-    stylistic: {
-      indent: 2,
-      quotes: 'single',
-    },
+    type: 'app',
 
     typescript: true,
-    jsonc: false,
-    yaml: false,
     vue: true,
 
     ignores: [
@@ -22,18 +15,14 @@ export default antfu(
     ],
   },
   {
-    files: [
-      'apps/**/*.ts',
-      'service/nestjs/src/**/*.ts',
-      'service/nestjs/test/**/*.ts',
-      'packages/cli/**/*.ts',
-    ],
     rules: {
       'no-console': 'off',
       'node/no-path-concat': 'off',
       'node/prefer-global/process': 'off',
       'ts/consistent-type-imports': 'off',
       'test/prefer-lowercase-title': 'off',
+      'perfectionist/sort-exports': 'off',
+      'perfectionist/sort-imports': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
     },
   },
@@ -60,15 +49,6 @@ export default antfu(
           ],
         },
       ],
-    },
-  },
-  {
-    files: [
-      'apps/**/*.ts',
-    ],
-    rules: {
-      'perfectionist/sort-exports': 'off',
-      'perfectionist/sort-imports': 'off',
     },
   },
 )
