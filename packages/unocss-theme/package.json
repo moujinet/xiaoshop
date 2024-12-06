@@ -35,6 +35,7 @@
     "stub": "unbuild --stub"
   },
   "devDependencies": {
+    "color": "^4.2.3",
     "unbuild": "^2.0.0",
     "unocss": "^0.65.1"
   },

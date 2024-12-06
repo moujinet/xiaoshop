@@ -1,9 +1,10 @@
 import type { Preset } from 'unocss'
 
 import arco from './presets/arco'
+import tdesign from './presets/tdesign'
 
 interface IPresetThemeOptions {
-  library: 'arco' | string
+  library: 'arco' | 'tdesign' | string
 }
 
 export function presetTheme(options: IPresetThemeOptions): Preset {
@@ -11,10 +12,11 @@ export function presetTheme(options: IPresetThemeOptions): Preset {
 
   const presets: Record<IPresetThemeOptions['library'], any> = {
     arco,
+    tdesign,
   }
 
   return {
-    name: '@xiaoshop/plugin-theme-unocss',
+    name: '@xiaoshop/unocss-theme',
     ...presets[library],
   }
 }

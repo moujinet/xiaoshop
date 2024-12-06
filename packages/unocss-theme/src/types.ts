@@ -1,3 +1,8 @@
-import type { PresetUnoTheme as Theme } from 'unocss'
+import type {
+  PresetUnoTheme as Theme,
+  UserShortcuts,
+} from 'unocss'
 
-export { Theme }
+type Shortcuts = UserShortcuts<Theme>
+
+export { Shortcuts, Theme }
