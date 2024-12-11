@@ -1,0 +1,75 @@
+{
+  "name": "@xiaoshop/uikit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XiaoShop 云链小店 (@uikit)",
+  "homepage": "https://github.com/moujinet/xiaoshop#readme",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/uikit"
+  },
+  "license": "Apache-2.0",
+  "author": "Allen Luo <luoyi@mouji.net>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./resolver": {
+      "types": "./dist/resolver/index.d.ts",
+      "require": "./dist/resolver/index.cjs",
+      "import": "./dist/resolver/index.mjs"
+    },
+    "./unocss": {
+      "types": "./dist/unocss/index.d.ts",
+      "require": "./dist/unocss/index.cjs",
+      "import": "./dist/unocss/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "vite serve playground",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "es-toolkit": "^1.29.0",
+    "radix-vue": "^1.9.11",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@iconify-json/mingcute": "^1.2.1",
+    "@iconify/utils": "^2.2.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "mkdist": "^1.6.0",
+    "unbuild": "^2.0.0",
+    "unocss": "^0.65.1",
+    "vite": "^6.0.3",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "@iconify/vue": "^4.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "es-toolkit": "^1.29.0",
+    "radix-vue": "^1.9.11",
+    "tailwind-merge": "^2.5.5",
+    "vue": "^3.5.13"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

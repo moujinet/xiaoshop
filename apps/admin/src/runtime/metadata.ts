@@ -1,62 +1,37 @@
-import type { RouteRecordRaw } from 'vue-router/auto'
+import type { RouteRecordRaw } from 'vue-router'
 
+import { computed, ref } from 'vue'
+import { defineStore } from 'pinia'
 import { cloneDeep } from 'es-toolkit/compat'
+import { toPath } from './utils'
 
-export interface IMetadataStoreDefinition {
+export interface IMetaData {
   id: string
   name: string
+  desc?: string
+  icon?: string
   workspace?: string
   module?: string
 }
 
-export type IModuleMeta = IMetadataStoreDefinition
-
 export const useMetaData = defineStore('metadata', () => {
-  /**
-   * 元数据
-   */
-  const metadata = ref<IMetadataStoreDefinition[]>([])
+  const metadata = ref<IMetaData[]>([])
 
-  /**
-   * 已排序
-   */
   const sorted = computed(() => {
     return metadata.value.sort(
       (a, b) => a.id.localeCompare(b.id),
     )
   })
 
-  /**
-   * 获取元数据
-   *
-   * @param id 标识
-   * @returns IModuleMeta
-   */
-  function getMetadata(id: string) {
-    return metadata.value.find(m => m.id === id)
-  }
-
-  /**
-   * 设置元数据
-   *
-   * @param meta 元数据
-   */
-  function setMetadata(meta: IMetadataStoreDefinition) {
+  function setMetadata(meta: IMetaData) {
     if (metadata.value.some(m => m.id === meta.id))
       throw new Error(`元数据 "${meta.id}" 已存在.`)
 
     metadata.value.push(meta)
   }
 
-  /**
-   * 扩展路由 Meta 信息
-   *
-   * @param routes RouteRecordRaw[]
-   * @param parentPath string
-   * @returns RouteRecordRaw[]
-   */
-  function extendRoutesMeta(routes: Readonly<RouteRecordRaw[]>, parentPath = ''): RouteRecordRaw[] {
-    const extendsRoutes: RouteRecordRaw[] = []
+  function extendRoutes(routes: Readonly<RouteRecordRaw[]>, parentPath = ''): RouteRecordRaw[] {
+    const extended: RouteRecordRaw[] = []
     const _parentPath = parentPath
 
     routes.forEach((_) => {
@@ -89,20 +64,19 @@ export const useMetaData = defineStore('metadata', () => {
       }
 
       if (route.children && route.children.length)
-        route.children = extendRoutesMeta(route.children, parentPath)
+        route.children = extendRoutes(route.children, parentPath)
 
       parentPath = meta ? _parentPath : ''
 
-      extendsRoutes.push(route)
+      extended.push(route)
     })
 
-    return extendsRoutes
+    return extended
   }
 
   return {
     metadata: sorted,
-    getMetadata,
     setMetadata,
-    extendRoutesMeta,
+    extendRoutes,
   }
 })

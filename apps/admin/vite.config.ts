@@ -9,12 +9,13 @@ import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import DefineOptions from 'unplugin-vue-define-options/vite'
+import UiKitResolver from '@xiaoshop/uikit/resolver'
 import IconsResolver from 'unplugin-icons/resolver'
-import RadixVueResolver from 'radix-vue/resolver'
 import Layouts from 'vite-plugin-vue-layouts'
 import SvgLoader from 'vite-svg-loader'
 import Inspect from 'vite-plugin-inspect'
 import Unocss from 'unocss/vite'
+import MagicString from 'magic-string'
 
 import { loadEnv } from 'vite'
 import { unheadVueComposablesImports } from '@unhead/vue'
@@ -50,25 +51,32 @@ const plugins: PluginOption[] = [
         },
       },
     ],
+    routeBlockLang: 'yaml',
     exclude: ['**/components/**'],
   }),
 
   // https://github.com/unplugin/unplugin-auto-import
   AutoImport({
     dirs: [
-      'src/composables',
-      'src/runtime/**',
-      'src/utils',
       'src/modules/**/apis',
+      'src/modules/**/hooks',
+      'src/composables',
+      'src/runtime',
+      'src/utils',
     ],
     imports: [
       'vue',
       'pinia',
       {
-        'alova/client': ['useRequest'],
+        'alova/client': [
+          'useRequest',
+        ],
       },
       VueRouterAutoImports,
       unheadVueComposablesImports,
+    ],
+    resolvers: [
+      UiKitResolver(),
     ],
     dts: 'src/auto-imports.d.ts',
     vueTemplate: true,
@@ -89,11 +97,11 @@ const plugins: PluginOption[] = [
       },
     ],
     resolvers: [
+      UiKitResolver(),
       IconsResolver({
         componentPrefix: 'icon',
         customCollections: ['empty', 'brand'],
       }),
-      RadixVueResolver(),
     ],
   }),
 
@@ -121,6 +129,27 @@ const plugins: PluginOption[] = [
 
   // https://github.com/antfu/unocss
   Unocss(),
+
+  // Purge comments
+  {
+    name: 'purge-comments',
+    enforce: 'pre',
+    transform: (code, id) => {
+      if (!id.endsWith('.vue') || !code.includes('<!--'))
+        return
+
+      const s = new MagicString(code)
+      // eslint-disable-next-line regexp/no-useless-non-capturing-group, regexp/sort-flags
+      s.replace(/<!--(?:.*?)-->/sg, '')
+
+      if (s.hasChanged()) {
+        return {
+          code: s.toString(),
+          map: s.generateMap({ source: id, includeContent: true }),
+        }
+      }
+    },
+  },
 ]
 
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -131,11 +160,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
   return {
     base: VITE_BASE_URL,
-
-    build: {
-      target: 'es2015',
-      sourcemap: false,
-    },
 
     resolve: {
       alias: {
@@ -152,6 +176,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
 
     esbuild: {
+      target: 'esnext',
       pure: mode === 'production' ? ['console.log', 'debugger'] : [],
     },
 
@@ -168,7 +193,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       Inspect({
         dev: mode === 'development',
       }),
-
     ],
   }
 }

@@ -22,7 +22,7 @@ export function splitDotId(id: string): string[] {
  * @param parent 父节点
  * @returns 标准化后的点分 ID
  */
-export function dotId(id: string, parent?: string): string {
+export function toDotId(id: string, parent?: string): string {
   const fullId = parent ? `${parent}.${id}` : id
 
   return fullId

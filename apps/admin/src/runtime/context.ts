@@ -4,10 +4,9 @@ import type { Router, RouteRecordRaw } from 'vue-router'
 
 import { routes } from 'vue-router/auto-routes'
 import { setupLayouts } from 'virtual:generated-layouts'
-
-import { installModules } from './module'
-import { installPlugins } from './plugin'
 import { installMiddlewares } from './middleware'
+import { installPlugins } from './plugin'
+import { installModules } from './module'
 
 export interface IContext {
   app: App<Element>
@@ -32,9 +31,9 @@ export async function createContext(
     routes: setupLayouts(routes),
   }
 
-  installModules(context)
   installPlugins(context)
   installMiddlewares(context)
+  installModules(context)
 
   app.use(router)
 

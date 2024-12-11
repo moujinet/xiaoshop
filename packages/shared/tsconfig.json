@@ -3,12 +3,20 @@
   "compilerOptions": {
     "useDefineForClassFields": true,
     "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@/*": ["src/types/*"],
-      "~/*": ["src/*"]
+      "@/*": [
+        "src/types/*"
+      ],
+      "~/*": [
+        "src/*"
+      ]
     },
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }

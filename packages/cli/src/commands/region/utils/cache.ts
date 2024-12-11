@@ -1,4 +1,4 @@
-import type { ILocation } from '@xiaoshop/shared'
+import type { ILocation } from '@xiaoshop/shared/types'
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 

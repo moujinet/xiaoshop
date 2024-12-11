@@ -1,5 +1,5 @@
 import type { IFetchResult } from './types'
-import type { ILocationNested } from '@xiaoshop/shared'
+import type { ILocationNested } from '@xiaoshop/shared/types'
 
 import { join } from 'node:path'
 import { cloneDeep } from 'es-toolkit/object'

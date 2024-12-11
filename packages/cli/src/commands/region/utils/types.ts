@@ -1,4 +1,4 @@
-import type { ILocation } from '@xiaoshop/shared'
+import type { ILocation } from '@xiaoshop/shared/types'
 
 export interface IFetchResult {
   provinces: ILocation[]

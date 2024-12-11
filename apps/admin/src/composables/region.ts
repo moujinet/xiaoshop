@@ -1,4 +1,4 @@
-import type { ILocationNested, ILocationPath } from '@xiaoshop/shared'
+import type { ILocationNested, ILocationPath } from '@xiaoshop/shared/types'
 
 import { cloneDeep } from 'es-toolkit/compat'
 

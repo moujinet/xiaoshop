@@ -1,4 +1,4 @@
-import type { ILocation } from '@xiaoshop/shared'
+import type { ILocation } from '@xiaoshop/shared/types'
 
 // eslint-disable-next-line regexp/no-super-linear-backtracking
 const REG_LINK = /<a.*?>(.*?)<\/a>/g

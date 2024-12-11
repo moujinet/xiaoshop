@@ -1,104 +1,98 @@
-import type { IDefineModuleOptions, IModuleStoreDefinition } from './module'
+import type { IModule } from './module'
 
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 import { useMetaData } from './metadata'
-import { DEFAULT_WORKSPACES } from './constants'
+import { DEFAULT_WORKSPACE_ID, DEFAULT_WORKSPACES } from './config/defaults'
 
-export interface IWorkspaceStoreDefinition {
+export interface IWorkspace {
   id: string
   name: string
   desc?: string
   icon?: string
   sort?: number
   hidden?: boolean
-  modules: IModuleStoreDefinition[]
+  modules?: IModule[]
 }
 
-export const useWorkspace = defineStore('workspaces', () => {
-  /**
-   * 工作区
-   */
-  const workspaces = ref<IWorkspaceStoreDefinition[]>(DEFAULT_WORKSPACES)
+export const useWorkspace = defineStore('workspace', () => {
+  const {
+    setMetadata,
+  } = useMetaData()
 
   const initd = ref(false)
 
-  const { setMetadata } = useMetaData()
+  const current = ref<IWorkspace | null>(null)
 
-  /**
-   * 已排序
-   */
+  const currentModule = ref<IModule | null>(null)
+
+  const workspaces = ref<IWorkspace[]>([])
+
   const sorted = computed(() => {
     return workspaces.value.sort(
-      (ws1, ws2) => (ws1.sort || 0) - (ws2.sort || 0),
+      (ws1, ws2) => (ws1.sort || 99) - (ws2.sort || 99),
     )
   })
 
-  /**
-   * 已激活
-   */
   const activated = computed(() => {
     return sorted.value.filter(ws => !ws.hidden)
   })
 
-  /**
-   * 查找指定 ID 工作区
-   *
-   * @param workspaceId
-   * @returns IWorkspaceStoreDefinition
-   */
-  function find(workspaceId: string) {
-    return workspaces.value.find(ws => ws.id === workspaceId)
+  const loadedModules = computed<IModule[]>(() => {
+    return current.value?.modules || []
+  })
+
+  function getWorkspace(wsId: string): IWorkspace | null {
+    return workspaces.value.find(ws => ws.id === wsId) || null
   }
 
-  /**
-   * 安装模块
-   *
-   * @param workspaceId 工作区 ID
-   * @param module 模块定义
-   */
-  function installModule(
-    workspaceId: string,
-    module: IDefineModuleOptions,
-  ) {
-    const workspace = find(workspaceId)
+  function switchTo(wsId?: string, moduleId?: string) {
+    if (!current.value || wsId !== current.value.id)
+      current.value = getWorkspace(wsId || DEFAULT_WORKSPACE_ID) || null
 
-    if (!workspace)
-      throw new Error(`工作区 "${workspaceId}" 不存在.`)
+    const leadModuleId = loadedModules.value.length ? loadedModules.value[0].id : ''
 
-    if (workspace.modules.some(ws => ws.id === module.id))
-      throw new Error(`模块 "${module.id}" 已存在.`)
+    currentModule.value = moduleId
+      ? current.value?.modules?.find(
+        m => m.id === moduleId || leadModuleId,
+      ) || null
+      : null
+  }
 
-    const newModule: IModuleStoreDefinition = {
-      id: `${workspace.id}.${module.id}`,
-      name: module.name || '',
-      desc: module.desc || '',
-      icon: module.icon || '',
-      version: module.version || '1.0.0',
-      sort: module.sort || workspace.modules.length + 1,
-    }
+  function createWorkspace(workspace: IWorkspace) {
+    if (!workspace.id)
+      throw new Error(`工作区 ID 必须指定.`)
 
-    workspace.modules.push(newModule)
+    if (workspaces.value.some(ws => ws.id === workspace.id))
+      throw new Error(`工作区 "${workspace.id}" 已存在.`)
+
+    workspaces.value.push(workspace)
 
     setMetadata({
-      id: newModule.id,
-      name: newModule.name,
-      workspace: workspace.id,
+      id: workspace.id,
+      name: workspace.name,
+      desc: workspace.desc,
+      icon: workspace.icon,
     })
-
-    return newModule
   }
 
   if (!initd.value) {
-    workspaces.value.forEach((ws) => {
-      setMetadata({
-        id: ws.id,
-        name: ws.name,
-      })
-    })
+    initd.value = true
+
+    DEFAULT_WORKSPACES.forEach(createWorkspace)
   }
 
   return {
-    workspaces: activated,
-    find,
-    installModule,
+    activated,
+    all: computed(() => sorted.value),
+    current: computed(() => current.value),
+    currentId: computed(() => current.value?.id || ''),
+    currentModule: computed(() => currentModule.value),
+    currentModuleId: computed(() => currentModule.value?.id || ''),
+    currentModuleMenus: computed(() => currentModule.value?.menus || []),
+    loadedModules: computed(() => loadedModules.value),
+    createWorkspace,
+    getWorkspace,
+    switchTo,
   }
 })

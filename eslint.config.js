@@ -13,6 +13,7 @@ export default antfu(
     jsonc: false,
     yaml: false,
     vue: true,
+    unocss: true,
 
     ignores: [
       'dist',
@@ -23,9 +24,7 @@ export default antfu(
   },
   {
     files: [
-      'apps/**/src/**/*.ts',
-      'services/**/src/**/*.ts',
-      'packages/**/src/**/*.ts',
+      '**/*.ts',
     ],
     rules: {
       'no-console': 'off',
@@ -36,31 +35,6 @@ export default antfu(
       'perfectionist/sort-exports': 'off',
       'perfectionist/sort-imports': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
-    },
-  },
-  {
-    files: [
-      'services/**/**/*.ts',
-      'packages/cli/**/*.ts',
-      'packages/shared/src/**/*.ts',
-    ],
-    rules: {
-      'perfectionist/sort-exports': 'off',
-      'perfectionist/sort-imports': [
-        'error',
-        {
-          type: 'line-length',
-          internalPattern: ['@/**', '~/**', '~~/**'],
-          groups: [
-            ['type'],
-            ['builtin', 'external'],
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'object',
-            'unknown',
-          ],
-        },
-      ],
     },
   },
 )

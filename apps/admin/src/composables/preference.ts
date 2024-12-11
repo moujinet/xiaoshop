@@ -1,54 +1,17 @@
-import { useDark, useSessionStorage, useToggle } from '@vueuse/core'
+import type { IPreferences } from '~/types/preference'
 
-import {
-  DEFAULT_PREFERENCE_ACCENT,
-  DEFAULT_PREFERENCE_COLLAPSE_ACTIVITY,
-  DEFAULT_PREFERENCE_SHOW_BADGE,
-  DEFAULT_PREFERENCE_THEME_COLOR,
-  DEFAULT_PREFERENCE_THEME_MODE,
-} from '~/constants/defaults'
+import { useDark, usePreferredDark, useSessionStorage, useToggle } from '@vueuse/core'
+import { DEFAULT_PREFERENCES } from '~/config/defaults'
 
-interface IUsePreferenceState {
-  /**
-   * 主题色
-   */
-  accent: string
-  /**
-   * 模式
-   */
-  themeMode: 'light' | 'dark' | 'auto'
-  /**
-   * 主题色
-   */
-  themeColor: string
-  /**
-   * 更新数据时，是否显示小红点
-   */
-  showBadge: boolean
-  /**
-   * 是否折叠活动面板
-   */
-  collapseActivity: boolean
-}
-
-export const isDark = useDark({
-  attribute: 'theme-mode',
-  storageKey: 'theme-mode',
-})
-
+export const isDark = useDark()
 export const toggleDark = useToggle(isDark)
+export const preferredDark = usePreferredDark()
 
 export function useUserPreferences() {
-  return useSessionStorage<IUsePreferenceState>('session.preference', {
-    accent: DEFAULT_PREFERENCE_ACCENT,
-    themeMode: DEFAULT_PREFERENCE_THEME_MODE,
-    themeColor: DEFAULT_PREFERENCE_THEME_COLOR,
-    showBadge: DEFAULT_PREFERENCE_SHOW_BADGE,
-    collapseActivity: DEFAULT_PREFERENCE_COLLAPSE_ACTIVITY,
-  })
+  return useSessionStorage('preferences', DEFAULT_PREFERENCES)
 }
 
-export function usePreference<K extends keyof IUsePreferenceState>(key: K): Ref<IUsePreferenceState[K]> {
+export function usePreference<K extends keyof IPreferences>(key: K): Ref<IPreferences[K]> {
   const preferences = useUserPreferences()
 
   return computed({
@@ -59,4 +22,9 @@ export function usePreference<K extends keyof IUsePreferenceState>(key: K): Ref<
       preferences.value[key] = newValue
     },
   })
+}
+
+export function togglePreference(key: keyof IPreferences) {
+  const flag = usePreference(key)
+  flag.value = !flag.value
 }

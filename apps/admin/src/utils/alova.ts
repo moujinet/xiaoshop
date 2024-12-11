@@ -1,6 +1,6 @@
 import VueHook from 'alova/vue'
-import { createAlova } from 'alova'
 import adapterFetch from 'alova/fetch'
+import { createAlova } from 'alova'
 
 /**
  * 本地资源请求实例

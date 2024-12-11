@@ -1,5 +1,5 @@
 import type { IFetchResult } from './utils/types'
-import type { ILocationNested } from '@xiaoshop/shared'
+import type { ILocationNested } from '@xiaoshop/shared/types'
 
 import { format } from 'node:util'
 import * as Prompt from '@clack/prompts'

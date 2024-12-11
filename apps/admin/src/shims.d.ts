@@ -1,5 +1,5 @@
 import 'vue-router/auto'
-import type { IModuleMeta } from '#/metadata'
+import type { IMetaData } from '#/metadata'
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -21,7 +21,7 @@ declare module 'vue' {
 }
 
 declare module 'vue-router' {
-  interface RouteMeta extends Partial<IModuleMeta> {
+  interface RouteMeta extends Partial<IMetaData> {
     isLayout?: boolean
   }
 }
@@ -36,11 +36,11 @@ declare global {
     VITE_ENABLE_DEVTOOL: string
   }
 
-  import type { MaybeRef } from 'vue'
-
   declare const __VERSION__: string
   declare const __HOMEPAGE__: string
   declare const __REPOSITORY__: string
+
+  import type { MaybeRef } from 'vue'
 
   type MaybeRefOrGetter<T> = MaybeRef<T> | (() => T)
 }

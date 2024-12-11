@@ -7,10 +7,10 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_HOST: "%"
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: xiaoshop
       MYSQL_DATABASE: xiaoshop
       MYSQL_USER: xiaoshop
-      MYSQL_PASSWORD: xiaoshop123456
+      MYSQL_PASSWORD: xiaoshop
       TZ: "Asia/Shanghai"
     volumes:
       - ./docker/mysql:/var/lib/mysql

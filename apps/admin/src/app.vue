@@ -1,18 +1,26 @@
 <script lang="ts" setup>
-import {
-  DEFAULT_ICON_ACTIVE,
-  DEFAULT_ICON_SET,
-  DEFAULT_ICON_SUFFIX,
-} from './constants/defaults'
-
-/**
- * 默认图标集设置
- *
- * @see {@link https://icones.js.org/collection/mingcute?variant=Line}
- */
-provide('ICON_SET', DEFAULT_ICON_SET)
-provide('ICON_DEFAULT_SUFFIX', DEFAULT_ICON_SUFFIX)
-provide('ICON_ACTIVE_SUFFIX', DEFAULT_ICON_ACTIVE)
+useHead({
+  meta: [
+    {
+      name: 'msapplication-TileColor',
+      content: '#0055ff',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'black-translucent',
+    },
+    {
+      name: 'theme-color',
+      content: () => isDark.value ? '#0055ff' : '#ffffff',
+    },
+  ],
+  link: [
+    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+    { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0055ff' },
+  ],
+})
 </script>
 
 <template>

@@ -5,5 +5,5 @@ defineOptions({
 </script>
 
 <template>
-  Hello
+  <UiKbd>Ctrl</UiKbd>
 </template>

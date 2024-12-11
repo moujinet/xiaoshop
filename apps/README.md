@@ -1,1 +1,5 @@
 # README
+
+- `admin`
+- `uniapp`
+- `web`
