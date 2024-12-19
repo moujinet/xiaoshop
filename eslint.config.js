@@ -9,17 +9,17 @@ export default antfu(
       quotes: 'single',
     },
 
+    markdown: true,
     typescript: true,
     jsonc: false,
     yaml: false,
     vue: true,
-    unocss: true,
+    unocss: false,
 
     ignores: [
       'dist',
       'snapshots*',
       'node_modules',
-      'docs/**',
     ],
   },
   {

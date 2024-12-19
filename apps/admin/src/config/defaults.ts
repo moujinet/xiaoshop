@@ -1,3 +1,4 @@
+import type { UiThemeIconSet } from '~/components/ui/theme/props'
 import type { IPreferences } from '~/types/preference'
 
 // --------------------------------------------------------
@@ -19,15 +20,8 @@ export const DEFAULT_PREFERENCES: IPreferences = {
 // 图标相关
 // --------------------------------------------------------
 
-/**
- * 默认图标集
- */
-export const DEFAULT_ICON_SET = 'mingcute'
-/**
- * 默认图标后缀
- */
-export const DEFAULT_ICON_SUFFIX = '-line'
-/**
- * 默认图标激活后缀
- */
-export const DEFAULT_ICON_ACTIVE = '-fill'
+export const DEFAULT_ICON_SET: UiThemeIconSet = {
+  package: 'mingcute',
+  suffix: '-line',
+  activeSuffix: '-fill',
+}

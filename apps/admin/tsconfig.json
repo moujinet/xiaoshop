@@ -21,10 +21,12 @@
     "verbatimModuleSyntax": true
   },
   "include": [
+    "preset/**/*.ts",
     "src/*.d.ts",
     "src/**/*.ts",
     "src/**/*.vue",
     "test/**/*.test.ts",
+    "uno.config.ts",
     "vite.config.ts"
   ],
   "exclude": [

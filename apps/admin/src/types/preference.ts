@@ -1,4 +1,4 @@
-import type { IColorRGB } from './global'
+import type { UiRgbColor } from './ui'
 
 export interface IPreferences {
   /**
@@ -6,7 +6,7 @@ export interface IPreferences {
    *
    * @default ''
    */
-  'interface.accent': IColorRGB
+  'interface.accent': UiRgbColor
   /**
    * 明暗模式
    *

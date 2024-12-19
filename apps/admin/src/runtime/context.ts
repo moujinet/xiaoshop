@@ -19,7 +19,7 @@ export interface IContextCallback {
   (ctx: IContext): Promise<void> | void
 }
 
-export async function createContext(
+export async function createAdminContext(
   app: App<Element>,
   store: Pinia,
   router: Router,

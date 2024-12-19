@@ -3,7 +3,7 @@ useHead({
   meta: [
     {
       name: 'msapplication-TileColor',
-      content: '#0055ff',
+      content: '#020617',
     },
     {
       name: 'apple-mobile-web-app-status-bar-style',
@@ -11,12 +11,11 @@ useHead({
     },
     {
       name: 'theme-color',
-      content: () => isDark.value ? '#0055ff' : '#ffffff',
+      content: () => isDark.value ? '#020617' : '#ffffff',
     },
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-    { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0055ff' },
   ],
@@ -24,5 +23,9 @@ useHead({
 </script>
 
 <template>
-  <RouterView />
+  <ConfigProvider>
+    <UiTheme>
+      <RouterView />
+    </UiTheme>
+  </ConfigProvider>
 </template>

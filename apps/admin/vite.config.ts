@@ -9,8 +9,8 @@ import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components/vite'
 import DefineOptions from 'unplugin-vue-define-options/vite'
-import UiKitResolver from '@xiaoshop/uikit/resolver'
 import IconsResolver from 'unplugin-icons/resolver'
+import RadixVueResolver from 'radix-vue/resolver'
 import Layouts from 'vite-plugin-vue-layouts'
 import SvgLoader from 'vite-svg-loader'
 import Inspect from 'vite-plugin-inspect'
@@ -60,6 +60,7 @@ const plugins: PluginOption[] = [
     dirs: [
       'src/modules/**/apis',
       'src/modules/**/hooks',
+      'src/composables/ui',
       'src/composables',
       'src/runtime',
       'src/utils',
@@ -74,9 +75,6 @@ const plugins: PluginOption[] = [
       },
       VueRouterAutoImports,
       unheadVueComposablesImports,
-    ],
-    resolvers: [
-      UiKitResolver(),
     ],
     dts: 'src/auto-imports.d.ts',
     vueTemplate: true,
@@ -97,11 +95,11 @@ const plugins: PluginOption[] = [
       },
     ],
     resolvers: [
-      UiKitResolver(),
       IconsResolver({
         componentPrefix: 'icon',
         customCollections: ['empty', 'brand'],
       }),
+      RadixVueResolver(),
     ],
   }),
 
