@@ -2,4 +2,3 @@
 
 - `cli`
 - `shared`
-- `uikit`

@@ -61,7 +61,9 @@
   // Enable cSpell for spell checking
   "cSpell.words": [
     "Chillax",
+    "iconset",
     "nestjs",
+    "preflights",
     "uikit",
     "uniapp"
   ]

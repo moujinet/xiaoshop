@@ -40,7 +40,7 @@
     "@nestjs/typeorm": "^10.0.2",
     "@xiaoshop/shared": "workspace:*",
     "bcrypt": "^5.1.1",
-    "bull": "^4.16.4",
+    "bull": "^4.16.5",
     "cache-manager": "5.7.6",
     "cache-manager-redis-store": "^3.0.1",
     "class-transformer": "^0.5.1",
