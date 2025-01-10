@@ -1,6 +1,6 @@
-# @xiaoshop/unocss-preset-uikit
+# @xiaoshop/uikit-preset
 
-XiaoShop UnoCSS preset.
+XiaoShop UiKit UnoCSS preset.
 
 ## Features
 
@@ -11,7 +11,7 @@ XiaoShop UnoCSS preset.
 ```ts
 // uno.config.ts
 import { defineConfig } from 'unocss'
-import { presetUikit } from 'unocss-preset-uikit'
+import { presetUikit } from '@xiaoshop/uikit-preset'
 
 export default defineConfig({
   presets: [
@@ -34,12 +34,12 @@ export default defineConfig({
 **accentColors**:
 
 - type: `AccentColorName[]`
-- default: `['indigo', 'cyan', 'ruby', 'amber']`
+- default: `['indigo', 'cyan', 'green', 'ruby', 'amber']`
 
 **grayColors**:
 
 - type: `GrayColorName[]`
-- default: `['slate']`
+- default: `['gray', 'slate']`
 
 ## Colors
 
