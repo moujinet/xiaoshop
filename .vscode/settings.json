@@ -60,6 +60,7 @@
 
   // Enable cSpell for spell checking
   "cSpell.words": [
+    "autoprefixer",
     "Bitstream",
     "Chillax",
     "Consolas",
@@ -70,6 +71,8 @@
     "tabler",
     "uikit",
     "uniapp",
-    "UNKEYED"
+    "UNKEYED",
+    "vitejs",
+    "vitest"
   ]
 }

@@ -18,9 +18,9 @@
   "scripts": {},
   "devDependencies": {
     "@xiaoshop/uikit-preset": "workspace:*",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "es-toolkit": "^1.31.0",
-    "tailwind-merge": "^2.6.0"
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "es-toolkit": "catalog:",
+    "tailwind-merge": "catalog:"
   }
 }

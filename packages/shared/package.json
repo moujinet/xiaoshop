@@ -40,7 +40,7 @@
     "prepack": "pnpm build"
   },
   "devDependencies": {
-    "unbuild": "^3.2.0"
+    "unbuild": "catalog:"
   },
   "packageManager": "pnpm@9.15.3"
 }
