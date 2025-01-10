@@ -60,11 +60,16 @@
 
   // Enable cSpell for spell checking
   "cSpell.words": [
+    "Bitstream",
     "Chillax",
+    "Consolas",
     "iconset",
     "nestjs",
+    "oklab",
     "preflights",
+    "tabler",
     "uikit",
-    "uniapp"
+    "uniapp",
+    "UNKEYED"
   ]
 }

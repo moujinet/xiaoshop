@@ -48,7 +48,7 @@
     "dayjs": "^1.11.13",
     "ip2region": "^2.3.0",
     "js-yaml": "^4.1.0",
-    "mysql2": "^3.11.5",
+    "mysql2": "^3.12.0",
     "nest-commander": "^3.15.0",
     "nestjs-cls": "^4.5.0",
     "redis": "^4.7.0",
@@ -58,7 +58,7 @@
     "sharp": "^0.33.5",
     "typeorm": "^0.3.20",
     "ua-parser-js": "1.0.38",
-    "uuid": "^11.0.3",
+    "uuid": "^11.0.5",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
@@ -66,7 +66,7 @@
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.15",
     "@swc/cli": "0.4.1-nightly.20240914",
-    "@swc/core": "^1.10.1",
+    "@swc/core": "^1.10.6",
     "@swc/jest": "^0.2.37",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
@@ -88,5 +88,5 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.3"
 }

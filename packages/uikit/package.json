@@ -1,0 +1,26 @@
+{
+  "name": "@xiaoshop/uikit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XiaoShop 云链小店 (@uikit)",
+  "homepage": "https://github.com/moujinet/xiaoshop#readme",
+  "bugs": {
+    "url": "https://github.com/moujinet/xiaoshop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moujinet/xiaoshop.git",
+    "directory": "packages/uikit"
+  },
+  "license": "Apache-2.0",
+  "author": "Allen Luo <luoyi@mouji.net>",
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "@xiaoshop/uikit-preset": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "es-toolkit": "^1.31.0",
+    "tailwind-merge": "^2.6.0"
+  }
+}
