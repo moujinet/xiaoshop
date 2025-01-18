@@ -13,3 +13,5 @@ apps/admin/src/vue-components.d.ts
 docs/.vitepress/cache
 docs/auto-imports.d.ts
 docs/components.d.ts
+
+*storybook.log

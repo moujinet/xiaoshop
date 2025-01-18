@@ -4,64 +4,64 @@ packages:
   - services/*
   - docs
 catalog:
-  "@antfu/eslint-config": ^3.13.0
-  "@antfu/ni": ^23.2.0
-  "@clack/prompts": ^0.9.1
-  "@commitlint/cli": ^19.6.1
-  "@commitlint/config-conventional": ^19.6.0
-  "@iconify-json/mingcute": ^1.2.3
-  "@iconify-json/svg-spinners": ^1.2.2
-  "@iconify-json/tabler": ^1.2.14
-  "@iconify/vue": ^4.3.0
-  "@nestjs/bull": ^10.2.3
-  "@nestjs/cache-manager": ^2.3.0
-  "@nestjs/cli": ^10.4.9
-  "@nestjs/common": ^10.4.15
-  "@nestjs/config": ^3.3.0
-  "@nestjs/core": ^10.4.15
-  "@nestjs/event-emitter": ^2.1.1
-  "@nestjs/jwt": ^10.2.0
-  "@nestjs/mapped-types": ^2.0.6
-  "@nestjs/passport": ^10.0.3
-  "@nestjs/platform-express": ^10.4.15
-  "@nestjs/schedule": ^4.1.2
-  "@nestjs/schematics": ^10.2.3
-  "@nestjs/testing": ^10.4.15
-  "@nestjs/typeorm": ^10.0.2
-  "@radix-ui/colors": ^3.0.0
-  "@swc/cli": 0.4.1-nightly.20240914
-  "@swc/core": ^1.10.6
-  "@swc/jest": ^0.2.37
-  "@types/bcrypt": ^5.0.2
-  "@types/express": ^5.0.0
-  "@types/hash-sum": ^1.0.2
-  "@types/html-minifier": ^4.0.5
-  "@types/jest": ^29.5.14
-  "@types/js-yaml": ^4.0.9
-  "@types/markdown-it-container": ^2.0.10
-  "@types/multer": ^1.4.12
-  "@types/node": ^22.10.5
-  "@types/nprogress": ^0.2.3
-  "@types/request-ip": ^0.0.41
-  "@types/supertest": ^6.0.2
-  "@types/ua-parser-js": ^0.7.39
-  "@types/uuid": ^10.0.0
-  "@unhead/vue": ^1.11.15
-  "@unocss/core": ^0.65.4
-  "@unocss/eslint-config": ^0.65.4
-  "@unocss/extractor-arbitrary-variants": ^0.65.4
-  "@unocss/preset-mini": ^0.65.4
-  "@unocss/preset-rem-to-px": ^0.65.4
-  "@unocss/preset-web-fonts": ^0.65.4
-  "@unocss/preset-wind": ^0.65.4
-  "@unocss/reset": ^0.65.4
-  "@vitejs/plugin-vue": ^5.2.1
-  "@vitejs/plugin-vue-jsx": ^4.1.1
-  "@vue-macros/volar": ^0.30.9
-  "@vue/devtools-api": ^7.7.0
-  "@vueuse/core": ^12.3.0
-  "@vueuse/math": ^12.3.0
-  alova: ^3.2.7
+  '@antfu/eslint-config': ^3.14.0
+  '@antfu/ni': ^23.2.0
+  '@clack/prompts': ^0.9.1
+  '@commitlint/cli': ^19.6.1
+  '@commitlint/config-conventional': ^19.6.0
+  '@iconify-json/mingcute': ^1.2.3
+  '@iconify-json/svg-spinners': ^1.2.2
+  '@iconify-json/tabler': ^1.2.14
+  '@iconify/vue': ^4.3.0
+  '@nestjs/bull': ^11.0.0
+  '@nestjs/cache-manager': ^3.0.0
+  '@nestjs/cli': ^10.4.9
+  '@nestjs/common': ^11.0.1
+  '@nestjs/config': ^4.0.0
+  '@nestjs/core': ^11.0.1
+  '@nestjs/event-emitter': ^3.0.0
+  '@nestjs/jwt': ^11.0.0
+  '@nestjs/mapped-types': ^2.1.0
+  '@nestjs/passport': ^11.0.2
+  '@nestjs/platform-express': ^11.0.1
+  '@nestjs/schedule': ^5.0.0
+  '@nestjs/schematics': ^11.0.0
+  '@nestjs/testing': ^11.0.1
+  '@nestjs/typeorm': ^11.0.0
+  '@radix-ui/colors': ^3.0.0
+  '@swc/cli': 0.4.1-nightly.20240914
+  '@swc/core': ^1.10.7
+  '@swc/jest': ^0.2.37
+  '@types/bcrypt': ^5.0.2
+  '@types/express': ^5.0.0
+  '@types/hash-sum': ^1.0.2
+  '@types/html-minifier': ^4.0.5
+  '@types/jest': ^29.5.14
+  '@types/js-yaml': ^4.0.9
+  '@types/markdown-it-container': ^2.0.10
+  '@types/multer': ^1.4.12
+  '@types/node': ^22.10.7
+  '@types/nprogress': ^0.2.3
+  '@types/request-ip': ^0.0.41
+  '@types/supertest': ^6.0.2
+  '@types/ua-parser-js': ^0.7.39
+  '@types/uuid': ^10.0.0
+  '@unhead/vue': ^1.11.18
+  '@unocss/core': ^65.4.2
+  '@unocss/eslint-config': ^65.4.2
+  '@unocss/extractor-arbitrary-variants': ^65.4.2
+  '@unocss/preset-mini': ^65.4.2
+  '@unocss/preset-rem-to-px': ^65.4.2
+  '@unocss/preset-web-fonts': ^65.4.2
+  '@unocss/preset-wind': ^65.4.2
+  '@unocss/reset': ^65.4.2
+  '@vitejs/plugin-vue': ^5.2.1
+  '@vitejs/plugin-vue-jsx': ^4.1.1
+  '@vue-macros/volar': ^0.30.10
+  '@vue/devtools-api': ^7.7.0
+  '@vueuse/core': ^12.4.0
+  '@vueuse/math': ^12.4.0
+  alova: ^3.2.8
   autoprefixer: ^10.4.20
   bcrypt: ^5.1.1
   bull: ^4.16.5
@@ -83,11 +83,11 @@ catalog:
   dayjs: ^1.11.13
   defu: ^6.1.4
   es-toolkit: ^1.31.0
-  eslint: ^9.17.0
+  eslint: ^9.18.0
   eslint-plugin-perfectionist: ^4.6.0
   eslint-plugin-vue: ^9.32.0
   fast-glob: ^3.3.3
-  glob: ^11.0.0
+  glob: ^11.0.1
   handlebars: ^4.7.8
   hash-sum: ^2.0.0
   html-minifier: ^4.0.0
@@ -95,7 +95,7 @@ catalog:
   jest: ^29.7.0
   js-yaml: ^4.1.0
   less: ^4.2.1
-  lint-staged: ^15.3.0
+  lint-staged: ^15.4.1
   magic-string: ^0.30.17
   markdown-it: ^14.1.0
   markdown-it-container: ^4.0.0
@@ -107,8 +107,8 @@ catalog:
   ofetch: ^1.4.1
   picocolors: ^1.1.1
   pinia: ^2.3.0
-  pnpm: ^9.15.3
-  postcss: ^8.4.49
+  pnpm: ^9.15.4
+  postcss: ^8.5.1
   postcss-nested: ^7.0.2
   prettier-2: npm:prettier@2
   radix-vue: ^1.9.12
@@ -126,16 +126,16 @@ catalog:
   supertest: ^7.0.0
   tailwind-merge: ^2.6.0
   ts-jest: ^29.2.5
-  ts-loader: ^9.5.1
+  ts-loader: ^9.5.2
   ts-node: ^10.9.2
   tsc-alias: ^1.8.10
   tsconfig-paths: ^4.2.0
   typeorm: ^0.3.20
   typescript: ^5.7.3
   ua-parser-js: 1.0.38
-  unbuild: ^3.2.0
+  unbuild: ^3.3.1
   unified: ^11.0.5
-  unocss: ^0.65.4
+  unocss: ^65.4.2
   unplugin-auto-import: ^19.0.0
   unplugin-icons: ^22.0.0
   unplugin-vue-components: ^28.0.0
@@ -144,11 +144,12 @@ catalog:
   uuid: ^11.0.5
   vite: ^6.0.7
   vite-bundle-visualizer: ^1.2.1
+  vite-plugin-dts: ^4.5.0
   vite-plugin-inspect: ^10.0.6
   vite-plugin-vue-layouts: ^0.11.0
   vite-svg-loader: ^5.1.0
   vitepress: ^1.5.0
-  vitest: ^2.1.8
+  vitest: ^3.0.2
   vue: ^3.5.13
   vue-router: ^4.5.0
   vue-tsc: ^2.2.0

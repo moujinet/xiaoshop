@@ -14,7 +14,7 @@ export default antfu(
     jsonc: false,
     yaml: false,
     vue: true,
-    unocss: false,
+    unocss: true,
 
     ignores: [
       'dist',

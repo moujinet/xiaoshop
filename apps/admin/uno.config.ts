@@ -1,6 +1,5 @@
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
   presetUno,
   presetWebFonts,
@@ -9,10 +8,9 @@ import {
 } from 'unocss'
 import { extractorArbitraryVariants } from '@unocss/extractor-arbitrary-variants'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
-import { presetAnimations } from 'unocss-preset-animations'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 
-import { presetUiKit } from './preset'
+import { presetUiKit } from './src/preset'
 
 export default defineConfig({
   presets: [
@@ -20,8 +18,6 @@ export default defineConfig({
     presetUiKit(),
     presetIcons(),
     presetRemToPx(),
-    presetAttributify(),
-    presetAnimations(),
     presetWebFonts({
       provider: 'fontshare',
       fonts: {
@@ -48,6 +44,7 @@ export default defineConfig({
     pipeline: {
       include: [
         /\.(vue|[jt]sx|html|md)($|\?)/,
+        'src/themes/**/*.{ts,js,mjs,cjs,mts,cts}',
         'src/**/ui.config.{ts,js,mjs,cjs,mts,cts}',
       ],
     },

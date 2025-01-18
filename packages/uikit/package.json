@@ -14,13 +14,50 @@
   },
   "license": "Apache-2.0",
   "author": "Allen Luo <luoyi@mouji.net>",
+  "sideEffects": false,
   "type": "module",
-  "scripts": {},
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./resolver": {
+      "types": "./dist/resolver/index.d.ts",
+      "import": "./dist/resolver.js",
+      "require": "./dist/resolver.cjs"
+    },
+    "./styles": "./uikit.css"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "./uikit.css"
+  ],
+  "scripts": {
+    "build": "vite build && pnpm uno",
+    "dev": "vite build -w & pnpm uno-watch",
+    "uno": "unocss -m",
+    "uno-watch": "unocss -w"
+  },
+  "dependencies": {
+    "radix-vue": "catalog:"
+  },
   "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
     "@xiaoshop/uikit-preset": "workspace:*",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",
-    "tailwind-merge": "catalog:"
+    "tailwind-merge": "catalog:",
+    "unocss": "catalog:",
+    "unplugin-vue-components": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vue": "catalog:"
   }
 }
