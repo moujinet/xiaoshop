@@ -32,3 +32,13 @@ export type GrayColorName =
   | 'sage'
   | 'olive'
   | 'sand'
+
+export type ColorName = AccentColorName | GrayColorName | 'white' | 'black' | 'neutral'
+
+export type CssVar = `var(--${string})`
+
+export type HexColor = `#${string}`
+
+export type CssVarColor = `--${NamedColor}`
+
+export type NamedColor = AccentColorName | GrayColorName

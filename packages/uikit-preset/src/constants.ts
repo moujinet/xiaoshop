@@ -28,8 +28,6 @@ export const ACCENT_COLOR_NAMES: AccentColorName[] = [
   'sky',
 ]
 
-export const DEFAULT_ACCENT_COLORS: AccentColorName[] = ['indigo', 'cyan', 'green', 'ruby', 'amber']
-
 export const GRAY_COLOR_NAMES: GrayColorName[] = [
   'gray',
   'mauve',
@@ -38,5 +36,3 @@ export const GRAY_COLOR_NAMES: GrayColorName[] = [
   'olive',
   'sand',
 ]
-
-export const DEFAULT_GRAY_COLORS: GrayColorName[] = ['gray', 'slate']

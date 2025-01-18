@@ -4,10 +4,11 @@ export default defineBuildConfig({
   entries: [
     'src/index',
   ],
+  failOnWarn: false,
   clean: true,
   declaration: true,
   rollup: {
     emitCJS: true,
   },
-  externals: ['@radix-ui/colors'],
+  externals: ['@unocss/core'],
 })

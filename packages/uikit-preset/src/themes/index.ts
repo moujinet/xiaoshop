@@ -1,3 +1,1 @@
-export * from './types'
-export * from './theme'
-export * from './preflights'
+export { default as defaultTheme } from './default'

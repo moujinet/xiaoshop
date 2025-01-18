@@ -1,24 +1,21 @@
-import type { AccentColorName, GrayColorName } from './colors/types'
-import type { ThemeConfig } from './themes/types'
+import type { ThemeConfig } from './types/theme'
+import type { AccentColorName, GrayColorName } from './types/color'
 
 import { definePreset } from '@unocss/core'
-import { preflights } from './preflights'
-import { shortcuts } from './shortcuts'
 
-import { colors } from './colors'
-import { themeColors } from './themes'
-import { DEFAULT_ACCENT_COLORS, DEFAULT_GRAY_COLORS } from './colors/constants'
-import { animation, borderRadius, boxShadow, breakpoints, easing, fontFamily, fontSize, spacing, verticalBreakpoints } from './theme'
-
-import defaultThemes from './themes/defaults'
+import { theme } from './preset/theme'
+import { shortcuts } from './preset/shortcuts'
+import { preflights } from './preset/preflights'
+import { ACCENT_COLOR_NAMES, GRAY_COLOR_NAMES } from './constants'
+import { defaultTheme } from './themes'
 
 export interface PresetUiKitOptions {
   /**
-   * @default 'ui'
+   * @default 'slate'
    */
-  prefix?: string
+  defaultGrayColor?: GrayColorName
   /**
-   * @default ':root, .light'
+   * @default ':root'
    */
   lightMode?: string
   /**
@@ -26,11 +23,11 @@ export interface PresetUiKitOptions {
    */
   darkMode?: string
   /**
-   * @default DEFAULT_ACCENT_COLORS
+   * @default ACCENT_COLOR_NAMES
    */
   accentColors?: AccentColorName[]
   /**
-   * @default DEFAULT_GRAY_COLORS
+   * @default GRAY_COLOR_NAMES
    */
   grayColors?: GrayColorName[]
   /**
@@ -41,43 +38,26 @@ export interface PresetUiKitOptions {
 
 export const presetUiKit = definePreset<PresetUiKitOptions>((options: PresetUiKitOptions = {}) => {
   const {
-    prefix = 'ui',
-    lightMode = ':root, .light',
-    darkMode = '.dark',
-    accentColors = DEFAULT_ACCENT_COLORS,
-    grayColors = DEFAULT_GRAY_COLORS,
+    defaultGrayColor = 'slate',
+    accentColors = ACCENT_COLOR_NAMES,
+    grayColors = GRAY_COLOR_NAMES,
     themes = [],
+    lightMode = ':root',
+    darkMode = '.dark',
   } = options
 
   return {
     name: '@xiaoshop/unocss-preset-uikit',
-    theme: {
-      breakpoints,
-      verticalBreakpoints,
-      fontFamily,
-      fontSize,
-      spacing,
-      borderRadius,
-      boxShadow,
-      easing,
-      animation,
-      colors: {
-        ...colors(
-          accentColors,
-          grayColors,
-        ),
-        ...themeColors(prefix),
-      },
-    },
+    theme: theme(defaultGrayColor),
     shortcuts,
     preflights: [
       ...preflights(
-        prefix,
+        defaultGrayColor,
         accentColors,
         grayColors,
         [
+          defaultTheme,
           ...themes,
-          ...defaultThemes,
         ],
         lightMode,
         darkMode,
