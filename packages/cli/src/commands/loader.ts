@@ -8,6 +8,7 @@ import { ConfigPath } from '@/config/path'
 import { RegionCommand } from './region'
 import { MigrateCommand } from './migrate'
 import { SchematicCommand } from './schematic'
+import { UikitCommand } from './uikit'
 
 export class CommandLoader {
   /**
@@ -59,5 +60,15 @@ export class CommandLoader {
      * ```
      */
     await new SchematicCommand().load(program)
+
+    /**
+     * UiKit Command
+     *
+     * @example
+     * ```bash
+     * $ xiaoshop uikit new
+     * ```
+     */
+    await new UikitCommand().load(program)
   }
 }

@@ -1,0 +1,26 @@
+<script lang="ts" setup>
+import type { {{ pascalCase name }}Props } from './{{ name }}.props'
+import { Primitive } from 'radix-vue'
+
+import ui from './{{ name }}.ui'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<{{ pascalCase name }}Props>(), {
+  as: 'div',
+})
+</script>
+
+<template>
+  <Primitive
+    :as="as"
+    :as-child="asChild"
+    :class="ui.variants({
+
+    }, props.class)"
+  >
+    <slot />
+  </Primitive>
+</template>

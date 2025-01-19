@@ -1,0 +1,13 @@
+import { createVariants, type VariantProps } from '~/composables/variants'
+
+// {{ pascalCase name }}
+export const ui = createVariants({
+  base: '',
+  variants: {},
+  compoundVariants: [],
+  defaultVariants: {},
+})
+
+export type {{ pascalCase name }}Variants = VariantProps<typeof ui.variants>
+
+export default ui

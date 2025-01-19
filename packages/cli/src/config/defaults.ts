@@ -20,7 +20,7 @@ export const defaultConfig: IConfig = {
     MP_ROOT: 'apps/mp',
     CLI_ROOT: 'packages/cli',
     SHARED_ROOT: 'packages/shared',
-    UI_ROOT: 'packages/ui',
+    UIKIT_ROOT: 'packages/uikit',
     NESTJS_ROOT: 'services/nestjs',
   },
 }
