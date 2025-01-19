@@ -6,7 +6,7 @@ import Logo from './logo.vue'
   <header class="flex flex-between">
     <div class="flex flex-center gap-2 leading-none">
       <Logo />
-      <strong class="text-base">@xiaoshop/uikit</strong>
+      <strong class="text-base">@xiaoshop/uikit-preset</strong>
     </div>
   </header>
 </template>

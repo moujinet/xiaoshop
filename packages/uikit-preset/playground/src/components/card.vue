@@ -9,7 +9,7 @@ defineProps<{
     <header class="w-50 text-2xl font-bold">
       {{ title }}
     </header>
-    <div class="b-separator flex-1 b-1 rounded-lg b-solid bg-white p-8">
+    <div class="b-separator flex-1 b-1 rounded-lg b-solid bg-panel p-8">
       <slot />
     </div>
   </section>

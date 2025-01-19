@@ -7,7 +7,7 @@ import type {
   ThemeConfig,
   ThemeForegroundTokens,
 } from '../../types'
-import { isColorName, isString, minifyCss } from '../../utils'
+import { getCssValue, isString, minifyCss } from '../../utils'
 
 function getTheme(theme: ThemeColorTokens): string[] {
   const cssVars: string[] = []
@@ -83,10 +83,6 @@ function getThemeSelector(mode: string, themeName: string) {
           : [acc, `[data-theme="${themeName}"]${mode.trim()}`].join(',')
       }, '')
     : `[data-theme="${themeName}"]${mode.trim().replace(':root', '')}`
-}
-
-function getCssValue(str: string): string {
-  return isColorName(str) ? `var(${str})` : str
 }
 
 export function preflightThemes(

@@ -34,7 +34,13 @@ export function colors(
       ...Array.from(Array.from({ length: 12 }).keys()).reduce((acc, _, i) => ({
         ...acc,
         [i + 1]: `rgb(var(--neutral-${i + 1}, var(--${defaultGrayColor}-${i + 1})) / <alpha-value>)`,
-        [`a${i + 1}`]: `rgb(var(--neutral-a${i + 1}, var(--${defaultGrayColor}-a${i + 1})))`,
+      }), {} as Theme['colors']),
+    },
+
+    neutralA: {
+      ...Array.from(Array.from({ length: 12 }).keys()).reduce((acc, _, i) => ({
+        ...acc,
+        [i + 1]: `var(--neutral-a${i + 1}, var(--${defaultGrayColor}-a${i + 1}))`,
       }), {} as Theme['colors']),
     },
 
@@ -42,6 +48,7 @@ export function colors(
     ...names.reduce((acc, name) => ({
       ...acc,
       [name]: getColorsForTheme(name),
+      [`${name}A`]: getColorsForTheme(name, true),
     }), {} as Theme['colors']),
   }
 }

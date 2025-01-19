@@ -31,8 +31,30 @@ export function preflightColors(
     }
   }
 
+  const createBlackWhitePreflight = (name: ColorName): Preflight => {
+    const cssVars: string[] = []
+
+    cssVars.push(lightMode, '{')
+    cssVars.push(`--${name}: ${name === 'black' ? '0 0 0' : '255 255 255'};`)
+    cssVars.push(...getCssColorVariables(name, false, true))
+    cssVars.push('}')
+
+    return {
+      getCSS() {
+        return minifyCss(cssVars.join(''))
+      },
+    }
+  }
+
   return [
-    accentColors,
-    grayColors,
-  ].flat().map(createColorsPreflight)
+    // Colors
+    ...[
+      accentColors,
+      grayColors,
+    ].flat().map(createColorsPreflight),
+    // Black
+    createBlackWhitePreflight('black'),
+    // White
+    createBlackWhitePreflight('white'),
+  ]
 }

@@ -18,10 +18,10 @@ export default {
         danger: '--ruby',
       },
       background: {
-        page: 'white',
+        page: '--white',
         sidebar: '--neutral-3',
-        navigator: 'white',
-        panel: 'white',
+        navigator: '--white',
+        panel: '--white',
         overlay: '--neutral-a9',
         separator: '--neutral-5',
       },
