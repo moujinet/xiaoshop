@@ -47,6 +47,7 @@
     "radix-vue": "catalog:"
   },
   "devDependencies": {
+    "@iconify-json/svg-spinners": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
     "@xiaoshop/uikit-preset": "workspace:*",
