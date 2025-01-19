@@ -1,5 +1,8 @@
 export const components: Record<string, string[]> = {
-  theme: [
+  generics: [
+    'Button',
+  ],
+  utilities: [
     'Theme',
   ],
 }
